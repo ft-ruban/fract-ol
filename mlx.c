@@ -24,8 +24,8 @@ void	init_screen_mlx(t_mlx *t_mlx)
 
 	t_mlx->mlx = mlx_init();
 
-	t_mlx->mlx_win = mlx_new_window(t_mlx->mlx, 1920, 1080, "Hello world!"); // we make a window called hello world! of res 1920, 1080 with the pointer mlx
-	t_mlx->img.img = mlx_new_image(t_mlx->mlx, 1920, 1080);
+	t_mlx->mlx_win = mlx_new_window(t_mlx->mlx, WIN_HEIGH, WIN_WITH, "Hello world!"); // we make a window called hello world! of res 1920, 1080 with the pointer mlx
+	t_mlx->img.img = mlx_new_image(t_mlx->mlx, WIN_HEIGH, WIN_WITH);
 	t_mlx->img.addr = mlx_get_data_addr(t_mlx->img.img, &(t_mlx->img.bits_per_pixel), &(t_mlx->img.line_length),
 								&(t_mlx->img.endian));
 	mandelbrot_set(t_mlx);
