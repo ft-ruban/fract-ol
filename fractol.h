@@ -6,13 +6,14 @@
 /*   By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:31:30 by ldevoude          #+#    #+#             */
-/*   Updated: 2025/02/08 18:57:53 by ldevoude         ###   ########lyon.fr   */
+/*   Updated: 2025/02/09 13:37:20 by ldevoude         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 #include <mlx.h>
 #include <stdlib.h>
+#include <stdio.h> //dlt before push
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
@@ -22,6 +23,13 @@
 # define false 0
 # define WIN_HEIGH 1920
 # define WIN_WITH 1080
+
+typedef struct s_complex
+{
+	double real_x;
+	double imaginary_y;
+}	t_complex;
+
 typedef struct s_img
 {
 	void	*img;
