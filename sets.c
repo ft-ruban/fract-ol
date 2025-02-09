@@ -46,6 +46,9 @@ void	mandelbrot_set(t_mlx *mlx, t_complex c)
 
 	z.real_x = 0;
 	z.imaginary_y = 0;
+	z.ratio_y = WIN_HEIGH / 2;
+	z.ratio_x = WIN_WITH / 2;
+	
 	y = -1;
 	i = 0;
 	while (++y < WIN_HEIGH)
@@ -54,8 +57,8 @@ void	mandelbrot_set(t_mlx *mlx, t_complex c)
 		while (++x < WIN_WITH)
 		{
 			// EQUATION DE MANDELBROT
-			z.imaginary_y = y * mlx.ratio_y;
-			z.real_x = x * mlx.ratio_x;
+			z.imaginary_y = y * z.ratio_y;
+			z.real_x = x * z.ratio_x;
 			i = 0;
 			while (i < 256 && z < 2)
 			{
@@ -65,14 +68,6 @@ void	mandelbrot_set(t_mlx *mlx, t_complex c)
 			my_mlx_pixel_put(&(mlx->img), y, x, 0xffff0000 + (i << 8) + i);
 		}
 	}
-	// my_mlx_pixel_put(&(t_mlx->img), 960, 540, 0xFF0000);
-	// my_mlx_pixel_put(&(t_mlx->img), 960, 540, 0xFF0000);
-	// my_mlx_pixel_put(&(t_mlx->img), 960, 540, 0xFF0000);
-	// my_mlx_pixel_put(&(t_mlx->img), 960, 540, 0xFF0000);
-	// my_mlx_pixel_put(&(t_mlx->img), 960, 540, 0xFF0000);
-	// my_mlx_pixel_put(&(t_mlx->img), 960, 540, 0xFF0000);
-	// my_mlx_pixel_put(&(t_mlx->img), 960, 540, 0xFF0000);
-	// my_mlx_pixel_put(&(t_mlx->img), 960, 540, 0xFF0000);
 	mlx_put_image_to_window(mlx->mlx, mlx->mlx_win, mlx->img.img, 0, 0);
 	mlx_loop(mlx->mlx);
 }
@@ -82,4 +77,8 @@ t_complex	ft_complex_add(t_complex first, t_complex second)
 	t_complex result;
 	result.real_x = first.real_x + second.real_x;
 	result.imaginary_y = first.imaginary_y + second.imaginary_y;
+}
+t_complex 	ft_complex_mul(t_complex first, t_complex second)
+{
+	
 }
