@@ -20,6 +20,9 @@ int main(void)
 	init_screen_mlx(screen); //to init the window
 	mlx_loop(screen->mlx);
 
+    free(screen);
+    return(0);
+
 	//go to sets to create mandelbrot set
 	
 	// mlx_loop(mlx);
