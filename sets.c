@@ -43,11 +43,11 @@ void	mandelbrot_set(t_mlx *mlx, t_complex c)
 	int			y;
 	int			i;
 	t_complex	z;
+    double scale_real = 3.0 / WIN_WITH;
+    double scale_imag = 3.0 / WIN_HEIGH;
 
 	z.real_x = 0;
 	z.imaginary_y = 0;
-	z.ratio_y = WIN_HEIGH / 2;
-	z.ratio_x = WIN_WITH / 2;
 	
 	y = -1;
 	i = 0;
@@ -57,8 +57,8 @@ void	mandelbrot_set(t_mlx *mlx, t_complex c)
 		while (++x < WIN_WITH)
 		{
 			// EQUATION DE MANDELBROT
-			z.imaginary_y = y * z.ratio_y;
-			z.real_x = x * z.ratio_x;
+            z.real_x = (x - WIN_WITH / 2) * scale_real;
+            z.imaginary_y = (y - WIN_HEIGH / 2) * scale_imag;
 			i = 0;
 			while (i < 256 && z.real_x * z.real_x + z.imaginary_y * z.imaginary_y < 4)
 			{
