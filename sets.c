@@ -65,7 +65,7 @@ void	mandelbrot_set(t_mlx *mlx, t_complex c)
 				z = (ft_complex_add(ft_complex_mul(z, z), c));
 				i++;
 			}
-			my_mlx_pixel_put(&(mlx->img), y, x, 0xffff0000 + (i << 8) + i);
+			my_mlx_pixel_put(&(mlx->img), y, x, get_color(i));
 		}
 	}
 	mlx_put_image_to_window(mlx->mlx, mlx->mlx_win, mlx->img.img, 0, 0);

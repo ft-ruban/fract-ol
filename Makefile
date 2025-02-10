@@ -41,6 +41,7 @@ SRC			=	main.c\
 				fractol.c\
 				mlx.c\
 				sets.c\
+				color.c\
 				
 
 HEADERS		=	fractol.h \
