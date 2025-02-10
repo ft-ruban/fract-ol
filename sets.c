@@ -60,7 +60,7 @@ void	mandelbrot_set(t_mlx *mlx, t_complex c)
             z.real_x = (x - WIN_WITH / 2) * scale_real;
             z.imaginary_y = (y - WIN_HEIGH / 2) * scale_imag;
 			i = 0;
-			while (i < 256 && z.real_x * z.real_x + z.imaginary_y * z.imaginary_y < 4)
+			while (i < 500 && z.real_x * z.real_x + z.imaginary_y * z.imaginary_y < 4)
 			{
 				z = (ft_complex_add(ft_complex_mul(z, z), c));
 				i++;
