@@ -36,7 +36,7 @@
 // }
 
 t_complex	ft_complex_add(t_complex first, t_complex second);
-
+t_complex   ft_complex_mul(t_complex first, t_complex second);
 void	mandelbrot_set(t_mlx *mlx, t_complex c)
 {
 	int			x;
@@ -60,7 +60,7 @@ void	mandelbrot_set(t_mlx *mlx, t_complex c)
 			z.imaginary_y = y * z.ratio_y;
 			z.real_x = x * z.ratio_x;
 			i = 0;
-			while (i < 256 && z < 2)
+			while (i < 256 && z.real_x * z.real_x + z.imaginary_y * z.imaginary_y < 4)
 			{
 				z = (ft_complex_add(ft_complex_mul(z, z), c));
 				i++;
@@ -77,8 +77,13 @@ t_complex	ft_complex_add(t_complex first, t_complex second)
 	t_complex result;
 	result.real_x = first.real_x + second.real_x;
 	result.imaginary_y = first.imaginary_y + second.imaginary_y;
+    return (result);
 }
 t_complex 	ft_complex_mul(t_complex first, t_complex second)
 {
-	
+    t_complex result;
+
+    result.real_x = first.real_x * second.real_x - first.imaginary_y * second.imaginary_y;
+    result.imaginary_y = first.real_x * second.imaginary_y + first.imaginary_y * second.real_x;
+    return (result);
 }
