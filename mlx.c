@@ -28,7 +28,6 @@ void	init_screen_mlx(t_mlx *t_mlx)
 	t_mlx->img.img = mlx_new_image(t_mlx->mlx, WIN_HEIGH, WIN_WITH);
 	t_mlx->img.addr = mlx_get_data_addr(t_mlx->img.img, &(t_mlx->img.bits_per_pixel), &(t_mlx->img.line_length),
 								&(t_mlx->img.endian));
-    t_complex c ={0};
 	mandelbrot_set(t_mlx,c);
 	// my_mlx_pixel_put(&(t_mlx->img), 960, 540, 0xFF0000);
 	// my_mlx_pixel_put(&(t_mlx->img), 960, 540, 0xFF0000);

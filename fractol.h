@@ -55,6 +55,7 @@ typedef struct s_ratio
 }			t_ratio;
 #endif
 
+int         get_color(int iter);
 void		init_screen_mlx(t_mlx *t_mlx);
 void		mandelbrot_set(t_mlx *mlx, t_complex c);
 void		my_mlx_pixel_put(t_img *data, int x, int y, int color);
