@@ -18,11 +18,14 @@
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# define C(x, y) ((x) + (y))
 # define true 1
 # define false 0
 # define WIN_HEIGH 1920
 # define WIN_WITH 1080
+# define X_MIN -2.0
+# define X_MAX 1.0
+# define Y_MIN -1.5
+# define Y_MAX 1.5
 
 typedef struct s_complex
 {

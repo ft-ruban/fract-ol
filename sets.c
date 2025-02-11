@@ -41,37 +41,37 @@ void	mandelbrot_set(t_mlx *mlx, t_complex c)
 {
 	int			x;
 	int			y;
-	int			i;
+	int			iter;
 	t_complex	z;
-    double scale_real = 3.0 / WIN_WITH;
-    double scale_imag = 3.0 / WIN_HEIGH;
+    double xtemp;
 
-	z.real_x = 0;
-	z.imaginary_y = 0;
-	
-	y = -1;
-	i = 0;
-	while (++y < WIN_HEIGH)
+	y = 0;
+	while (y < WIN_WITH)
 	{
-		x = -1;
-		while (++x < WIN_WITH)
-		{
-			// EQUATION DE MANDELBROT
-            z.real_x = (x - WIN_WITH / 2) * scale_real;
-            z.imaginary_y = (y - WIN_HEIGH / 2) * scale_imag;
-			i = 0;
-			while (i < 500 && z.real_x * z.real_x + z.imaginary_y * z.imaginary_y < 4)
-			{
-				z = (ft_complex_add(ft_complex_mul(z, z), c));
-				i++;
-			}
-			my_mlx_pixel_put(&(mlx->img), y, x, get_color(i));
-		}
-	}
-	mlx_put_image_to_window(mlx->mlx, mlx->mlx_win, mlx->img.img, 0, 0);
-	mlx_loop(mlx->mlx);
+		x = 0;
+		while (x < WIN_HEIGH)
+        {
+            c.real_x = (x - WIN_HEIGH / 2.0) * 4.0 / WIN_HEIGH;
+            c.imaginary_y = (y - WIN_WITH / 2.0) * 4.0 / WIN_HEIGH;
+            z.real_x = 0;
+            z.imaginary_y = 0;
+            iter = 0;
+            while (z.real_x * z.real_x + z.imaginary_y * z.imaginary_y <= 4
+                && iter < 256)
+            {
+                xtemp = z.real_x * z.real_x - z.imaginary_y * z.imaginary_y
+                    + c.real_x;
+                z.imaginary_y = 2 * z.real_x * z.imaginary_y + c.imaginary_y;
+                z.real_x = xtemp;
+                iter++;
+            }
+            my_mlx_pixel_put(&(mlx->img), x, y, get_color(iter));
+            x++;
+        }
+        y++;
+    }
+    mlx_put_image_to_window(mlx->mlx, mlx->mlx_win, mlx->img.img, 0, 0);
 }
-
 t_complex	ft_complex_add(t_complex first, t_complex second)
 {
 	t_complex result;
