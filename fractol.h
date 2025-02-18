@@ -6,7 +6,7 @@
 /*   By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:31:30 by ldevoude          #+#    #+#             */
-/*   Updated: 2025/02/09 17:33:14 by ldevoude         ###   ########lyon.fr   */
+/*   Updated: 2025/02/18 14:07:15 by ldevoude         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 
 # define true 1
 # define false 0
-# define WIN_HEIGH 1920
-# define WIN_WITH 1080
+# define WIN_HEIGHT 1920
+# define WIN_WIDTH 1080
 # define X_MIN -2.0
 # define X_MAX 1.0
 # define Y_MIN -1.5
@@ -60,5 +60,5 @@ typedef struct s_ratio
 
 int         get_color(int iter);
 void		init_screen_mlx(t_mlx *t_mlx);
-void		mandelbrot_set(t_mlx *mlx, t_complex c);
+void		mandelbrot_set(t_mlx *mlx, t_complex *c);
 void		my_mlx_pixel_put(t_img *data, int x, int y, int color);

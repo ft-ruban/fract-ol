@@ -37,7 +37,7 @@
 
 t_complex	ft_complex_add(t_complex first, t_complex second);
 t_complex   ft_complex_mul(t_complex first, t_complex second);
-void	mandelbrot_set(t_mlx *mlx, t_complex c)
+void	mandelbrot_set(t_mlx *mlx, t_complex *c)
 {
 	int			x;
 	int			y;
@@ -46,13 +46,13 @@ void	mandelbrot_set(t_mlx *mlx, t_complex c)
     double xtemp;
 
 	y = 0;
-	while (y < WIN_WITH)
+	while (y < WIN_WIDTH)
 	{
 		x = 0;
-		while (x < WIN_HEIGH)
+		while (x < WIN_HEIGHT)
         {
-            c.real_x = (x - WIN_HEIGH / 2.0) * 4.0 / WIN_HEIGH;
-            c.imaginary_y = (y - WIN_WITH / 2.0) * 4.0 / WIN_HEIGH;
+            c->real_x = (x - WIN_HEIGHT / 2.0) * 2.0 / WIN_HEIGHT; // zoom = 4.0 TODO create variable zoom
+            c->imaginary_y = (y - WIN_WIDTH / 2.0) * 2.0 / WIN_HEIGHT; // zoom = 4.0
             z.real_x = 0;
             z.imaginary_y = 0;
             iter = 0;
@@ -60,8 +60,8 @@ void	mandelbrot_set(t_mlx *mlx, t_complex c)
                 && iter < 256)
             {
                 xtemp = z.real_x * z.real_x - z.imaginary_y * z.imaginary_y
-                    + c.real_x;
-                z.imaginary_y = 2 * z.real_x * z.imaginary_y + c.imaginary_y;
+                    + c->real_x;
+                z.imaginary_y = 2 * z.real_x * z.imaginary_y + c->imaginary_y;
                 z.real_x = xtemp;
                 iter++;
             }
