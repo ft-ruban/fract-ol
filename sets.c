@@ -37,3 +37,15 @@ void	mandelbrot_set(t_mlx *mlx, t_complex *c)
 	}
 	mlx_put_image_to_window(mlx->mlx, mlx->mlx_win, mlx->img.img, 0, 0);
 }
+
+void sets(int set_num, t_mlx *mlx)
+{
+	t_complex	c;
+
+	//TODO? add more variables to win some spaces!!!
+	if(set_num == 1)
+		mandelbrot_set(mlx, &c);
+
+	//TODO Julia set
+	return;
+}
