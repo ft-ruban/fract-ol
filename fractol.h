@@ -6,7 +6,7 @@
 /*   By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:31:30 by ldevoude          #+#    #+#             */
-/*   Updated: 2025/02/19 11:19:40 by ldevoude         ###   ########lyon.fr   */
+/*   Updated: 2025/02/19 14:10:28 by ldevoude         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,10 @@ typedef struct s_ratio
 #endif
 
 int			get_color(int iter);
-void		init_screen_mlx(t_mlx *t_mlx);
+void		*init_screen_mlx(t_mlx *t_mlx);
 void		mandelbrot_set(t_mlx *mlx, t_complex *c);
 void		my_mlx_pixel_put(t_img *data, int x, int y, int color);
-int 		is_sets_available(char *argv);
+int 		is_sets_available(char *argv, int *set_num);
 int 		error_msg();
+void 		*free_null(void  *target);
+void 		sets(int set_num, t_mlx *screen);

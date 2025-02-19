@@ -1,18 +1,24 @@
 #include "fractol.h"
 #include <string.h> //TORM BFR PUSH
-int free_wip(void)
+void *free_null(void *target)
 {
-    return 0;
+    free(target);
+    target = NULL;
+    return(target);
 }
 int error_msg()
 {
-    //TODO error msg
+    printf("Error"); //put fd 2
     return (1);
 }
-int is_sets_available(char *argv)
+//if mandel set_num == 1
+int is_sets_available(char *argv, int *set_num)
 {
-    if (strcmp (argv, "Mandelbrot")) //TODO libft + all the sets available
-        return (1);
-    else
+    if (!strcmp (argv, "Mandelbrot")) //TODO libft + all the sets available
+    {    
+        *set_num = 1;        
         return (0);
+    }
+    else
+        return (1);
 }
