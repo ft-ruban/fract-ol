@@ -6,7 +6,7 @@
 #    By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/05 15:21:37 by ldevoude          #+#    #+#              #
-#    Updated: 2025/02/19 09:42:34 by ldevoude         ###   ########lyon.fr    #
+#    Updated: 2025/02/19 11:33:36 by ldevoude         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ DMLX		=	mlx_linux
 #####################################################
 #					FLAGS							#
 #####################################################
-CFLAGS		=	-Wall -Wextra -Werror -g3
+CFLAGS		=	-Wall -Wextra -Werror -g3 -g
 CPPFLAGS	=	-I $(DMLX)/
 MLXFLAGS	=	-lX11 -lXext
 

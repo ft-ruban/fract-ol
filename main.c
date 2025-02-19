@@ -6,17 +6,18 @@
 /*   By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 15:53:21 by ldevoude          #+#    #+#             */
-/*   Updated: 2025/02/19 10:40:14 by ldevoude         ###   ########lyon.fr   */
+/*   Updated: 2025/02/19 11:36:10 by ldevoude         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 //#include <unistd.h>
-int main(void)
+int main(int argc, char *argv[])
 {
 	t_mlx screen; //TOLEARN before it was a pointer I had to malloc free blabla learn about it
 	t_complex	c;
-	//TODO errors.c (explicit name) 
+	if (argc < 2 || is_sets_available(argv[1]) == 1)
+		return (error_msg());
 	init_screen_mlx(&screen); //to init the window it goes to mlx.c
 	mandelbrot_set(&screen, &c);//TODO change into ft_sets to determine which sets it will use
 	mlx_loop(screen.mlx); //someone told me it was a good idea here instead in mlx.c
