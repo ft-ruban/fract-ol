@@ -6,7 +6,7 @@
 /*   By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 15:53:21 by ldevoude          #+#    #+#             */
-/*   Updated: 2025/02/19 16:23:54 by ldevoude         ###   ########lyon.fr   */
+/*   Updated: 2025/02/19 17:40:09 by ldevoude         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 	int set_num;
 	t_mlx screen; //TOLEARN it was a pointer I had to malloc free blabla learn about it
 
-	if (argc < 2 || is_sets_available(argv[1], &set_num) == 1)
+	if (argc != 2 || is_sets_available(argv[1], &set_num) == 1)
 		return (error_msg());
 
 	if (init_screen_mlx(&screen) == NULL)

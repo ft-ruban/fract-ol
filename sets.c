@@ -31,6 +31,11 @@ void	mandelbrot_set(t_mlx *mlx, t_complex *c, t_utils *misc_utils, t_complex *z)
 	mlx_put_image_to_window(mlx->mlx, mlx->mlx_win, mlx->img.img, 0, 0);
 }
 //25 lines if I remove coms!!!
+/*void	julia_set(t_mlx *mlx, t_complex *c, t_utils *misc_utils, t_complex *z)
+{
+	//TODO
+}
+*/
 
 void sets(int set_num, t_mlx *mlx)
 {
@@ -38,11 +43,14 @@ void sets(int set_num, t_mlx *mlx)
 	t_complex	z;
 	t_utils misc_utils;
 
+	//TODO utils would contain the zoom ratio?
 	misc_utils.y = 0;
 	//TODO? add more variables to win some spaces!!!
 	if(set_num == 1)
 		mandelbrot_set(mlx, &c, &misc_utils, &z);
 
-	//TODO Julia set
+	//if(set_num == 2)
+		//julia_set(mlx, &c, &misc_utils,&z);
+		//TODO Julia set
 	return;
 }

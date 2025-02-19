@@ -19,6 +19,12 @@ int is_sets_available(char *argv, int *set_num)
         *set_num = 1;        
         return (0);
     }
+    /*
+    else if (!strcmp (argv, "Julia")) //TODO libft + all the sets available
+    {    
+        *set_num = 2;        
+        return (0);
+    }*/
     else
         return (1);
 }
