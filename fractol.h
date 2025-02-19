@@ -6,7 +6,7 @@
 /*   By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:31:30 by ldevoude          #+#    #+#             */
-/*   Updated: 2025/02/19 16:13:54 by ldevoude         ###   ########lyon.fr   */
+/*   Updated: 2025/02/19 17:18:24 by ldevoude         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 
 # define true 1
 # define false 0
-# define WIN_HEIGHT 1920
-# define WIN_WIDTH 1080
+# define WIN_HEIGHT 1920 //500 //1920
+# define WIN_WIDTH  1080//500 //1080
 # define X_MIN -2.0
 # define X_MAX 1.0
 # define Y_MIN -1.5
@@ -53,17 +53,19 @@ typedef struct s_mlx
 	t_img	img;
 }			t_mlx;
 
-typedef struct s_ratio
+typedef struct s_utils
 {
-	int		ratio_y;
-	int		ratio_x;
-}			t_ratio;
+	int 	x;
+	int 	y;
+	int 	iter;
+	double	xtemp;
+}			t_utils;
 #endif
 
 int 		main(int argc, char *argv[]);
 int			get_color(int iter);
 void		*init_screen_mlx(t_mlx *t_mlx);
-void		mandelbrot_set(t_mlx *mlx, t_complex *c);
+void		mandelbrot_set(t_mlx *mlx, t_complex *c, t_utils *misc_utils, t_complex *z);
 void		my_mlx_pixel_put(t_img *data, int x, int y, int color);
 int 		is_sets_available(char *argv, int *set_num);
 int 		error_msg();

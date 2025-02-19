@@ -1,50 +1,47 @@
 #include "fractol.h"
 
-void	mandelbrot_set(t_mlx *mlx, t_complex *c)
+void	mandelbrot_set(t_mlx *mlx, t_complex *c, t_utils *misc_utils, t_complex *z)
 {
-	int			x;
-	int			y;
-	int			iter;
-	t_complex	z;
-	double		xtemp;
-
-	y = 0;
-	while (y < WIN_WIDTH)
+	while (misc_utils->y < WIN_WIDTH)
 	{
-		x = 0;
-		while (x < WIN_HEIGHT)
+		misc_utils->x = 0;
+		while (misc_utils->x < WIN_HEIGHT) //TODO maybe calculate only what I need depending of the zoom?
 		{
-			c->real_x = (x - WIN_HEIGHT_HALF) * 4.0 / WIN_HEIGHT;
+			c->real_x = (misc_utils->x - WIN_HEIGHT_HALF) * 4.0 / WIN_HEIGHT;
 			// zoom = 4.0 TODO create variable zoom
-			c->imaginary_y = (y - WIN_WIDTH_HALF) * 4.0 / WIN_HEIGHT; //offset
-			// zoom = 4.0
-			z.real_x = 0;
-			z.imaginary_y = 0;
-			iter = 0;
-			while (z.real_x * z.real_x + z.imaginary_y * z.imaginary_y <= 4
-				&& iter < 256)
+			c->imaginary_y = (misc_utils->y - WIN_WIDTH_HALF) * 4.0 / WIN_HEIGHT; //offset
+			// zoom = 4.0 mult and div x/y - winhalf would move the plan
+			z->real_x = 0;
+			z->imaginary_y = 0;
+			misc_utils->iter = 0;
+			while (z->real_x * z->real_x + z->imaginary_y * z->imaginary_y <= 4
+				&& misc_utils->iter < 256)
 			{
-				xtemp = z.real_x * z.real_x - z.imaginary_y * z.imaginary_y
+				misc_utils->xtemp = z->real_x * z->real_x - z->imaginary_y * z->imaginary_y
 					+ c->real_x;
-				z.imaginary_y = 2 * z.real_x * z.imaginary_y + c->imaginary_y;
-				z.real_x = xtemp;
-				iter++;
+				z->imaginary_y = 2 * z->real_x * z->imaginary_y + c->imaginary_y;
+				z->real_x = misc_utils->xtemp;
+				misc_utils->iter += 1;
 			}
-			my_mlx_pixel_put(&(mlx->img), x, y, get_color(iter));
-			x++;
+			my_mlx_pixel_put(&(mlx->img), misc_utils->x, misc_utils->y, get_color(misc_utils->iter));
+			misc_utils->x += 1;
 		}
-		y++;
+		misc_utils->y += 1;
 	}
 	mlx_put_image_to_window(mlx->mlx, mlx->mlx_win, mlx->img.img, 0, 0);
 }
+//25 lines if I remove coms!!!
 
 void sets(int set_num, t_mlx *mlx)
 {
 	t_complex	c;
+	t_complex	z;
+	t_utils misc_utils;
 
+	misc_utils.y = 0;
 	//TODO? add more variables to win some spaces!!!
 	if(set_num == 1)
-		mandelbrot_set(mlx, &c);
+		mandelbrot_set(mlx, &c, &misc_utils, &z);
 
 	//TODO Julia set
 	return;
