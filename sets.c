@@ -14,7 +14,7 @@ void	mandelbrot_set(t_mlx *mlx, t_complex *c)
 		x = 0;
 		while (x < WIN_HEIGHT)
 		{
-			c->real_x = (x - WIN_HEIGHT_HALF) * 4.0/ WIN_HEIGHT;
+			c->real_x = (x - WIN_HEIGHT_HALF) * 4.0 / WIN_HEIGHT;
 			// zoom = 4.0 TODO create variable zoom
 			c->imaginary_y = (y - WIN_WIDTH_HALF) * 4.0 / WIN_HEIGHT; //offset
 			// zoom = 4.0
