@@ -6,7 +6,7 @@
 #    By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/05 15:21:37 by ldevoude          #+#    #+#              #
-#    Updated: 2025/02/07 15:56:36 by ldevoude         ###   ########.fr        #
+#    Updated: 2025/02/19 09:42:34 by ldevoude         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,10 +38,11 @@ MLXFLAGS	=	-lX11 -lXext
 #					FILES							#
 #####################################################
 SRC			=	main.c\
-				fractol.c\
+				math_formula.c\
 				mlx.c\
 				sets.c\
 				color.c\
+				error.c\
 				
 
 HEADERS		=	fractol.h \
