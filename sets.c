@@ -22,7 +22,7 @@ void	mandelbrot_set(t_mlx *mlx, t_complex *c)
 			z.imaginary_y = 0;
 			iter = 0;
 			while (z.real_x * z.real_x + z.imaginary_y * z.imaginary_y <= 4
-				&& iter < 800)
+				&& iter < 256)
 			{
 				xtemp = z.real_x * z.real_x - z.imaginary_y * z.imaginary_y
 					+ c->real_x;
