@@ -6,7 +6,7 @@
 /*   By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 14:47:06 by ldevoude          #+#    #+#             */
-/*   Updated: 2025/02/20 14:06:31 by ldevoude         ###   ########lyon.fr   */
+/*   Updated: 2025/02/20 16:26:08 by ldevoude         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,21 @@
 int 	close_window(int keycode, t_mlx *t_mlx)
 {
 	printf("keycode : %d", keycode);
-	mlx_destroy_window(t_mlx->mlx, t_mlx->mlx_win);
-	mlx_destroy_display(t_mlx->mlx);
-	free(t_mlx -> mlx);
+	if(t_mlx->mlx_win)
+	mlx_loop_end(t_mlx->mlx);
+	if(t_mlx->img.img)
+		mlx_destroy_image(t_mlx->mlx, t_mlx->img.img);
+	if(t_mlx->mlx_win)
+		mlx_destroy_window(t_mlx->mlx, t_mlx->mlx_win);
+	if(t_mlx->mlx)	
+	{
+		mlx_destroy_display(t_mlx->mlx);
+		free(t_mlx->mlx);
+	}
+	//mlx_loop_end(t_mlx->mlx);
+	exit(0);
+	
+
 	return (0);
 }
 
