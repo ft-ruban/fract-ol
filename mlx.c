@@ -6,12 +6,22 @@
 /*   By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 14:47:06 by ldevoude          #+#    #+#             */
-/*   Updated: 2025/02/20 09:20:54 by ldevoude         ###   ########lyon.fr   */
+/*   Updated: 2025/02/20 14:06:31 by ldevoude         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 #include <unistd.h> //to rm with write
+
+int 	close_window(int keycode, t_mlx *t_mlx)
+{
+	printf("keycode : %d", keycode);
+	mlx_destroy_window(t_mlx->mlx, t_mlx->mlx_win);
+	mlx_destroy_display(t_mlx->mlx);
+	free(t_mlx -> mlx);
+	return (0);
+}
+
 void	my_mlx_pixel_put(t_img *data, int x, int y, int color)
 {
 	*(unsigned int *)(data->addr + (y * data->line_length + x

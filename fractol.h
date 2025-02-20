@@ -6,7 +6,7 @@
 /*   By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:31:30 by ldevoude          #+#    #+#             */
-/*   Updated: 2025/02/20 10:40:53 by ldevoude         ###   ########lyon.fr   */
+/*   Updated: 2025/02/20 14:05:22 by ldevoude         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ typedef struct s_utils
 #endif
 
 int 		main(int argc, char *argv[]);
+int			close_window(int keycode, t_mlx *t_mlx);
 void 		mandelbrot_formula(t_complex *c, t_complex *z, t_utils *misc_utils);
 int			get_color(int iter);
 void		*init_screen_mlx(t_mlx *t_mlx);
