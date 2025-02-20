@@ -10,19 +10,8 @@ void	mandelbrot_set(t_mlx *mlx, t_complex *c, t_utils *misc_utils, t_complex *z)
 			c->real_x = (misc_utils->x - WIN_WIDTH_HALF) * 4.0 / WIN_WIDTH;
 			// zoom = 4.0 TODO create variable zoom
 			c->imaginary_y = (misc_utils->y - WIN_HEIGHT_HALF) * 4.0 / WIN_WIDTH; //offset
-			// zoom = 4.0 mult and div x/y - winhalf would move the plan
-			z->real_x = 0;
-			z->imaginary_y = 0;
-			misc_utils->iter = 0;
-			while (z->real_x * z->real_x + z->imaginary_y * z->imaginary_y <= 4//useforopti
-				&& misc_utils->iter < 256)
-			{
-				misc_utils->xtemp = z->real_x * z->real_x - z->imaginary_y * z->imaginary_y
-					+ c->real_x;
-				z->imaginary_y = 2 * z->real_x * z->imaginary_y + c->imaginary_y;
-				z->real_x = misc_utils->xtemp;
-				misc_utils->iter++;
-			}
+			/* zoom = 4.0 mult and div x/y - winhalf would move the plan*/
+			mandelbrot_formula(c, z, misc_utils);
 			my_mlx_pixel_put(&(mlx->img), misc_utils->x, misc_utils->y, get_color(misc_utils->iter));
 			misc_utils->x++;
 		}
