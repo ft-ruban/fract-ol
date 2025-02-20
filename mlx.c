@@ -6,7 +6,7 @@
 /*   By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 14:47:06 by ldevoude          #+#    #+#             */
-/*   Updated: 2025/02/20 16:26:08 by ldevoude         ###   ########lyon.fr   */
+/*   Updated: 2025/02/20 17:54:53 by ldevoude         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,15 @@
 
 int 	close_window(int keycode, t_mlx *t_mlx)
 {
-	printf("keycode : %d", keycode);
-	if(t_mlx->mlx_win)
-	mlx_loop_end(t_mlx->mlx);
-	if(t_mlx->img.img)
-		mlx_destroy_image(t_mlx->mlx, t_mlx->img.img);
-	if(t_mlx->mlx_win)
-		mlx_destroy_window(t_mlx->mlx, t_mlx->mlx_win);
+	printf("keycode : %d", keycode); //65307 for ESC
+	if(keycode == 65307)
+	{
+		if(t_mlx->mlx_win)
+			mlx_loop_end(t_mlx->mlx);
+		if(t_mlx->img.img)
+			mlx_destroy_image(t_mlx->mlx, t_mlx->img.img);
+		if(t_mlx->mlx_win)
+			mlx_destroy_window(t_mlx->mlx, t_mlx->mlx_win);
 	if(t_mlx->mlx)	
 	{
 		mlx_destroy_display(t_mlx->mlx);
@@ -29,10 +31,11 @@ int 	close_window(int keycode, t_mlx *t_mlx)
 	}
 	//mlx_loop_end(t_mlx->mlx);
 	exit(0);
-	
+	}
 
 	return (0);
 }
+//TODO file command to store everything <3
 
 void	my_mlx_pixel_put(t_img *data, int x, int y, int color)
 {
