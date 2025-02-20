@@ -6,7 +6,7 @@
 /*   By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 14:47:06 by ldevoude          #+#    #+#             */
-/*   Updated: 2025/02/19 13:52:37 by ldevoude         ###   ########lyon.fr   */
+/*   Updated: 2025/02/20 09:20:54 by ldevoude         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ void	*init_screen_mlx(t_mlx *t_mlx)
 	t_mlx->mlx = mlx_init();
 	if (!t_mlx->mlx)
 		return (NULL);
-	t_mlx->mlx_win = mlx_new_window(t_mlx->mlx, WIN_HEIGHT, WIN_WIDTH,"proutzor");
+	t_mlx->mlx_win = mlx_new_window(t_mlx->mlx, WIN_WIDTH, WIN_HEIGHT,"proutzor");
 	if (!t_mlx->mlx_win)
 	{
 		mlx_destroy_display(t_mlx->mlx);
 		free(t_mlx -> mlx);
 		return (NULL);
 	}
-	t_mlx->img.img = mlx_new_image(t_mlx->mlx, WIN_HEIGHT, WIN_WIDTH);
+	t_mlx->img.img = mlx_new_image(t_mlx->mlx, WIN_WIDTH, WIN_HEIGHT);
 	if (!t_mlx->img.img)
 	{
 		mlx_destroy_window(t_mlx->mlx, t_mlx->mlx_win);

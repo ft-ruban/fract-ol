@@ -2,14 +2,14 @@
 
 void	mandelbrot_set(t_mlx *mlx, t_complex *c, t_utils *misc_utils, t_complex *z)
 {
-	while (misc_utils->y < WIN_WIDTH)
+	while (misc_utils->y < WIN_HEIGHT)
 	{
 		misc_utils->x = 0;
-		while (misc_utils->x < WIN_HEIGHT) //TODO maybe calculate only what I need depending of the zoom?
+		while (misc_utils->x < WIN_WIDTH) //TODO maybe calculate only what I need depending of the zoom?
 		{
-			c->real_x = (misc_utils->x - WIN_HEIGHT_HALF) * 4.0 / WIN_HEIGHT;
+			c->real_x = (misc_utils->x - WIN_WIDTH_HALF) * 4.0 / WIN_WIDTH;
 			// zoom = 4.0 TODO create variable zoom
-			c->imaginary_y = (misc_utils->y - WIN_WIDTH_HALF) * 4.0 / WIN_HEIGHT; //offset
+			c->imaginary_y = (misc_utils->y - WIN_HEIGHT_HALF) * 4.0 / WIN_WIDTH; //offset
 			// zoom = 4.0 mult and div x/y - winhalf would move the plan
 			z->real_x = 0;
 			z->imaginary_y = 0;
