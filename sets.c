@@ -2,7 +2,7 @@
 
 void	mandelbrot_set(t_mlx *mlx, t_complex *c, t_utils *misc_utils, t_complex *z)
 {
-	while (misc_utils->y < WIN_HEIGHT)
+	while (misc_utils->y < WIN_HEIGHT) //1080
 	{
 		misc_utils->x = 0;
 		while (misc_utils->x < WIN_WIDTH) //TODO maybe calculate only what I need depending of the zoom?
@@ -14,17 +14,17 @@ void	mandelbrot_set(t_mlx *mlx, t_complex *c, t_utils *misc_utils, t_complex *z)
 			z->real_x = 0;
 			z->imaginary_y = 0;
 			misc_utils->iter = 0;
-			while (z->real_x * z->real_x + z->imaginary_y * z->imaginary_y <= 4
+			while (z->real_x * z->real_x + z->imaginary_y * z->imaginary_y <= 4//useforopti
 				&& misc_utils->iter < 256)
 			{
 				misc_utils->xtemp = z->real_x * z->real_x - z->imaginary_y * z->imaginary_y
 					+ c->real_x;
 				z->imaginary_y = 2 * z->real_x * z->imaginary_y + c->imaginary_y;
 				z->real_x = misc_utils->xtemp;
-				misc_utils->iter += 1;
+				misc_utils->iter++;
 			}
 			my_mlx_pixel_put(&(mlx->img), misc_utils->x, misc_utils->y, get_color(misc_utils->iter));
-			misc_utils->x += 1;
+			misc_utils->x++;
 		}
 		misc_utils->y += 1;
 	}
