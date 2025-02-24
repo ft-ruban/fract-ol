@@ -6,7 +6,7 @@
 #    By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/05 15:21:37 by ldevoude          #+#    #+#              #
-#    Updated: 2025/02/19 11:33:36 by ldevoude         ###   ########lyon.fr    #
+#    Updated: 2025/02/24 15:10:54 by ldevoude         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,7 @@ SRC			=	main.c\
 				sets.c\
 				color.c\
 				error.c\
+				hooks.c\
 				
 
 HEADERS		=	fractol.h \
