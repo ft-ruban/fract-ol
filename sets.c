@@ -7,7 +7,7 @@ void	mandelbrot_set(t_mlx *mlx, t_complex *c, t_utils *misc_utils, t_complex *z)
 		misc_utils->x = 0;
 		while (misc_utils->x < WIN_WIDTH) //TODO maybe calculate only what I need depending of the zoom?
 		{
-			c->real_x = (misc_utils->x - WIN_WIDTH_HALF + 0) * 4.0 / WIN_WIDTH;
+			c->real_x = (misc_utils->x - WIN_WIDTH_HALF + 0) * 4.0 / WIN_WIDTH; //Alex zoom moyenne entre souris et centre
 			c->imaginary_y = (misc_utils->y - WIN_HEIGHT_HALF + 0) * 4.0 / WIN_WIDTH; //offset
 			/* zoom = 4.0 mult and div x/y - winhalf would move the plan*/
 			mandelbrot_formula(c, z, misc_utils);

@@ -1,25 +1,17 @@
 #include "fractol.h"
 
-/*int get_color(int iter)
-{
-    if (iter == 256)
-        return 0x000000; //black for the inside
-    return 0xFF0000 + (iter << 8); // shades of red
-}*/ 
-/*int get_color(int iter)
-{
-    int red = (iter * 9) % 256;
-    int green = (iter * 2) % 256;
-    int blue = (iter * 5) % 256;
-    return (red << 16) | (green << 8) | blue;
-}*/ 
+//Would determine how to color the pixel depending of the iteration, if the max iteration (256)
+//is reached it mean we are in the black reach
+//if we are below we will get a rgb code to color depending of the reach!
+//NOTE: changing the max iter obviously change the colors of the fractal
+//status : COMPLETED
 int get_color(int iter)
 {
     if (iter == 256)
-        return 0x000000;  // Noir pour les points qui n'ont pas divergé
+        return 0x000000;
 
-    int red = (iter * 9) % 256;
+    int red = (iter * 9) % 256; //Alex add +x to change
     int green = (iter * 2) % 256;
     int blue = (iter * 5) % 256;
-    return (red << 16) | (green << 8) | blue;  // Rouge, vert, bleu
+    return (red << 16) | (green << 8) | blue;
 }

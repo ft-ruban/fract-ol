@@ -1,5 +1,7 @@
 #include "fractol.h"
-
+//Function that would handle the clean closure of our program when user
+//pressed with their mouse on the window redcross
+//status : COMPLETED
 int cross_window (t_mlx *t_mlx)
 {
 		printf("Cross activated\n");
@@ -14,10 +16,11 @@ int cross_window (t_mlx *t_mlx)
 			mlx_destroy_display(t_mlx->mlx);
 			free(t_mlx->mlx);
 		}
-		mlx_loop_end(t_mlx->mlx);
 		exit(0);
 }
-
+//Function that would handle the clean closure of our program
+//when the user would press the ESC key
+//status : COMPLETED
 int 	close_window(int keycode, t_mlx *t_mlx)
 {
 	printf("keycode : %d\n", keycode); //65307 for ESC
@@ -34,7 +37,6 @@ int 	close_window(int keycode, t_mlx *t_mlx)
 		mlx_destroy_display(t_mlx->mlx);
 		free(t_mlx->mlx);
 	}
-	mlx_loop_end(t_mlx->mlx);
 	exit(0);
 	}
 

@@ -1,11 +1,17 @@
 #include "fractol.h"
 #include <string.h> //TORM BFR PUSH
+
+//Free_null function because it is more readable this way + we save a lot of lines
+//limits
+//status : COMPLETE
 void *free_null(void *target)
 {
     free(target);
     target = NULL;
     return(target);
 }
+//Error messages that function will print a predefined error message to warn the user
+//status : WIP
 int error_msg()
 {
     printf("Error"); //put fd 2
