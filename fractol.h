@@ -6,15 +6,15 @@
 /*   By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:31:30 by ldevoude          #+#    #+#             */
-/*   Updated: 2025/02/25 15:07:05 by ldevoude         ###   ########lyon.fr   */
+/*   Updated: 2025/02/25 16:37:52 by ldevoude         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
-#include <mlx.h>
+#include "mlx_linux/mlx.h"
 #include <stdio.h> //dlt before push
 #include <stdlib.h>
-#include "libft.h"
+#include "libftx/libft.h"
 
 #ifndef FRACTOL_H
 # define FRACTOL_H

@@ -6,7 +6,7 @@
 #    By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/05 15:21:37 by ldevoude          #+#    #+#              #
-#    Updated: 2025/02/25 15:46:43 by ldevoude         ###   ########lyon.fr    #
+#    Updated: 2025/02/25 16:44:49 by ldevoude         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,8 @@ CC			=	cc
 #####################################################
 DMLX		=	mlx_linux
 DLIBFTX		=	libftx
+OBJDIR 		= 	obj
+$(shell mkdir -p $(OBJDIR)) #create dir if not existing
 #D		=	
 
 #####################################################
@@ -46,7 +48,9 @@ SRC			=	main.c\
 				hooks.c\
 				$(wildcard $(DLIBFTX)/*.c)
 				
-OBJ = $(CFILES:.c=.o)
+# OBJ = $(CFILES:.c=.o)\
+
+OBJ = $(SRC:.c=.o)\
 
 HEADERS		=	fractol.h \
 				$(DMLX)/mlx.h \
@@ -78,6 +82,7 @@ $(LIBMLX):
 
 %.o: %.c $(HEADERS)
 	$(CC) $(CFLAGS) -c $< -o $@
+	
 $(NAME): $(HEADERS) Makefile $(SRC)
 	$(CC) $(CFLAGS) $(CPPFLAGS) $(SRC) $(LIBMLX) $(LIBLIBFTX) $(MLXFLAGS) -o $(NAME)
 
