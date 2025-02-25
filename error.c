@@ -14,7 +14,7 @@ void *free_null(void *target)
 //status : WIP
 int error_msg()
 {
-    printf("Error"); //put fd 2
+    ft_printf("Error"); //put fd 2
     return (1);
 }
 //if mandel set_num == 1
