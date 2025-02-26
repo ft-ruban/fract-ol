@@ -6,7 +6,7 @@
 /*   By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:31:30 by ldevoude          #+#    #+#             */
-/*   Updated: 2025/02/25 16:37:52 by ldevoude         ###   ########lyon.fr   */
+/*   Updated: 2025/02/26 10:44:20 by ldevoude         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ typedef struct s_mlx
 
 typedef struct s_utils
 {
-	int 	x;
-	int 	y;
+	double 	x;
+	double 	y; //int if broke
 	int 	iter;
 	double	xtemp;
 }			t_utils;

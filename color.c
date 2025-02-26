@@ -5,6 +5,7 @@
 //if we are below we will get a rgb code to color depending of the reach!
 //NOTE: changing the max iter obviously change the colors of the fractal
 //status : COMPLETED
+//TODOIFBONUS : maybe add a keyboard command to change color without changing the iter?
 int get_color(int iter)
 {
     if (iter == 256)

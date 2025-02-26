@@ -6,7 +6,7 @@
 #    By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/05 15:21:37 by ldevoude          #+#    #+#              #
-#    Updated: 2025/02/25 16:57:24 by ldevoude         ###   ########lyon.fr    #
+#    Updated: 2025/02/26 10:21:37 by ldevoude         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ $(shell mkdir -p $(OBJDIR)) #create dir if not existing
 #####################################################
 CFLAGS		=	-Wall -Wextra -Werror -g3 -g
 CPPFLAGS	=	-I $(DMLX)/ -I $(DLIBFTX)/  # Include headers from both directories
-MLXFLAGS	=	-lX11 -lXext
+MLXFLAGS	=	-lX11 -lXext -lm
 
 #####################################################
 #					FILES							#

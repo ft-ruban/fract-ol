@@ -1,5 +1,10 @@
 #include "fractol.h"
 
+//iterate to each pixels + give the middle point of the screen and redirect to the right formula depending of the asked fractal
+//status : WIP 85%
+//TODO: Maybe merge all my fractal and just make a condition that would redirect to any formula depending of the user's needs
+//TODO: See if there any way to improve the perf of that, I do believe there is some.
+
 void	mandelbrot_set(t_mlx *mlx, t_complex *c, t_utils *misc_utils, t_complex *z)
 {
 	while (misc_utils->y < WIN_HEIGHT) //1080
@@ -18,6 +23,8 @@ void	mandelbrot_set(t_mlx *mlx, t_complex *c, t_utils *misc_utils, t_complex *z)
 	}
 	mlx_put_image_to_window(mlx->mlx, mlx->mlx_win, mlx->img.img, 0, 0);
 }
+//refer to comment of mandelbrot_set
+
 void	julia_set(t_mlx *mlx, t_complex *c, t_utils *misc_utils, t_complex *z)
 {
 	while (misc_utils->y < WIN_HEIGHT) //1080
@@ -37,16 +44,18 @@ void	julia_set(t_mlx *mlx, t_complex *c, t_utils *misc_utils, t_complex *z)
 	mlx_put_image_to_window(mlx->mlx, mlx->mlx_win, mlx->img.img, 0, 0);
 }
 
-
+//would redirect the program depending of the set_num content that represent which fractal the user is looking for it also init some struct
+//that would be used in those said fractal.
+//status : WIP 85%
+// TODO utils would contain the zoom ratio?
+// TODO make a define for MANDELBROT and JULIA and ??? to make program more readable?
 void sets(int set_num, t_mlx *mlx, t_complex *c)
 {
-	//t_complex	c;
 	t_complex	z;
 	t_utils misc_utils;
 
-	//TODO utils would contain the zoom ratio?
 	misc_utils.y = 0;
-	if(set_num == 1) //TODO enum
+	if(set_num == 1)
 		mandelbrot_set(mlx, c, &misc_utils, &z);
 
 	if(set_num == 2)
