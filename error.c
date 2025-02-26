@@ -33,8 +33,9 @@ int is_sets_available(char **argv, int *set_num, int argc, t_complex *c)
     {    
         if (argc != 4)
             return (1);
-        c->real_x = -0.7; //atoi(argv[2]); //TODO create an atod
-        c->imaginary_y = 0.27015; //atoi(argv[3]);
+        c->real_x = (long double)-0.202420806884766;//ft_atop(argv[2]); //-0.7
+        c->imaginary_y = (long double)0.39527333577474;//ft_atop(argv[3]); //0.27015
+        printf("value of realx = %.15f \n /*value of imaginary_y = %.15f \n*/",c->real_x,c->imaginary_y);
         *set_num = 2;        
         return (0);
     }

@@ -6,7 +6,7 @@
 #    By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/05 15:21:37 by ldevoude          #+#    #+#              #
-#    Updated: 2025/02/25 16:44:49 by ldevoude         ###   ########lyon.fr    #
+#    Updated: 2025/02/25 16:57:24 by ldevoude         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -99,3 +99,4 @@ re: fclean all
 
 .PHONY: all clean fclean re
 
+#TODO Would love to learn how to place my .o into a folder...

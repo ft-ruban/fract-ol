@@ -21,6 +21,7 @@ CFLAGS = -Wall -Wextra -Werror
 #					FILES							#
 #####################################################
 CFILES = 	ft_atoi.c\
+			ft_atop.c\
 			ft_bzero.c \
 			ft_calloc.c \
 			ft_isalnum.c \
