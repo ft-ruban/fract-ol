@@ -17,6 +17,7 @@ int error_msg()
     ft_printf("Error"); //put fd 2
     return (1);
 }
+
 //will determine which fractal was selected set set_num with the right numbercode verify if the number of arguments are valids and setup what need to be
 //set up at the start (like the x-y value of Julia fractal that was given by the user at launch) if error return 1 that will then lead to Error msg.
 //status : WIP 90% 
@@ -24,23 +25,26 @@ int error_msg()
 
 int is_sets_available(char **argv, int *set_num, int argc, t_complex *c)
 {
-    printf("string : %s\n",argv[2]);
-    if (!strcmp (argv[1], "Mandelbrot")) //TODO libft + all the sets available
+    if (!ft_strcmp (argv[1], "Mandelbrot"))
     {    
         if (argc != 2)
             return (1);
         *set_num = 1;        
         return (0);
     }
-    
-    else if (!strcmp (argv[1], "Julia")) //TODO libft + all the sets available
+    else if (!ft_strcmp (argv[1], "Julia"))
     {    
         if (argc != 4)
             return (1);
-        c->real_x = ft_atop(argv[2]); //-0.7
-        c->imaginary_y = ft_atop(argv[3]); //0.27015
+        c->real_x = ft_atop(argv[2]);
+        c->imaginary_y = ft_atop(argv[3]);
         *set_num = 2;        
         return (0);
+    }
+    else if (!ft_strcmp (argv[1], "help"))
+    {
+        ft_printf("topmoumoute");
+        return (1);
     }
     else
         return (1);
