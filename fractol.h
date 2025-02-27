@@ -6,7 +6,7 @@
 /*   By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:31:30 by ldevoude          #+#    #+#             */
-/*   Updated: 2025/02/26 10:44:20 by ldevoude         ###   ########lyon.fr   */
+/*   Updated: 2025/02/27 11:36:58 by ldevoude         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,6 @@ void		mandelbrot_set(t_mlx *mlx, t_complex *c, t_utils *misc_utils, t_complex *z
 void		julia_set(t_mlx *mlx, t_complex *c, t_utils *misc_utils, t_complex *z);
 void		my_mlx_pixel_put(t_img *data, int x, int y, int color);
 int 		is_sets_available(char **argv, int *set_num, int argc, t_complex *c);
-int 		error_msg();
+int 		error_msg(int error_code);
 void 		*free_null(void  *target);
 void 		sets(int set_num, t_mlx *mlx, t_complex *c);

@@ -12,7 +12,7 @@ void *free_null(void *target)
 //Error messages that function will print a predefined error message to warn the user
 //status : WIP 10%
 //TODO : ft_printfd to send error to the error fd related + different error messages depending of the returned code!
-int error_msg()
+int error_msg(int error_code)
 {
     ft_printf("Error"); //put fd 2
     return (1);
@@ -25,27 +25,29 @@ int error_msg()
 
 int is_sets_available(char **argv, int *set_num, int argc, t_complex *c)
 {
-    if (!ft_strcmp (argv[1], "Mandelbrot"))
+    if (argc == 1)
+        return (1);
+    else if (!ft_strcmp (argv[1], "Mandelbrot"))
     {    
         if (argc != 2)
-            return (1);
-        *set_num = 1;        
+            return (2);
+        *set_num = 1;
         return (0);
     }
     else if (!ft_strcmp (argv[1], "Julia"))
     {    
         if (argc != 4)
-            return (1);
+            return (3);
         c->real_x = ft_atop(argv[2]);
         c->imaginary_y = ft_atop(argv[3]);
         *set_num = 2;        
         return (0);
     }
-    else if (!ft_strcmp (argv[1], "help"))
+    else if (!ft_strcmp (argv[1], "Help"))
     {
         ft_printf("topmoumoute");
-        return (1);
+        return (4);
     }
     else
-        return (1);
+        return (5);
 }
