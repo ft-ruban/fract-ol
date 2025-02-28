@@ -6,7 +6,7 @@
 /*   By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 16:07:07 by ldevoude          #+#    #+#             */
-/*   Updated: 2025/02/27 11:13:27 by ldevoude         ###   ########lyon.fr   */
+/*   Updated: 2025/02/27 13:09:49 by ldevoude         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,7 @@ int		ft_toupper(int c);
 char	*ft_utoa(unsigned int n);
 int	    ft_printf(const char *str, ...);
 int	    ft_printf_cases(va_list ptr, int i, const char *str,int *ptr_return_value);
+int	    ft_printfd(const char *str, ...);
+int	    ft_printfd_cases(va_list ptr, int i, const char *str,int *ptr_return_value);
 
 #endif

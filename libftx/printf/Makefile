@@ -1,5 +1,5 @@
 # 🏗️ Variables de fichiers
-SRC = ft_printf.c ft_printf_cases.c
+SRC = ft_printf.c ft_printf_cases.c ft_printfd.c ft_printfd_cases.c
 OBJ = $(SRC:.c=.o)
 
 # 📌 Chemin vers libft
@@ -39,6 +39,11 @@ fclean: clean
 
 # 🔄 Rebuild propre
 re: fclean all
+
+debug :
+								@echo "Current directory: $(PWD)"
+								@echo "Checking libft files:"
+								@ls -l $(DIR_LIBFT)
 
 # ⚠️ S'assurer que `libft` est bien construite avant `printf.a`
 $(LIBFT):

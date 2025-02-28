@@ -14,7 +14,7 @@ void *free_null(void *target)
 //TODO : ft_printfd to send error to the error fd related + different error messages depending of the returned code!
 int error_msg(int error_code)
 {
-    ft_printf("Error"); //put fd 2
+    ft_printfd("Error code : %d", error_code); //put fd 2
     return (1);
 }
 

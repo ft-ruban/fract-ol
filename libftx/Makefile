@@ -10,8 +10,8 @@ CC = cc
 #####################################################
 #					DIRECTORY						#
 #####################################################
-DGNL        = get_next_line
-DPRINTF     = printf
+DGNL        = ./get_next_line
+DPRINTF     = ./printf
 #D          =
 #####################################################
 #					FLAGS							#
@@ -61,6 +61,8 @@ CFILES = 	ft_atoi.c\
 			ft_utoa.c \
 			printf/ft_printf.c \
 			printf/ft_printf_cases.c\
+			printf/ft_printfd.c \
+			printf/ft_printfd_cases.c\
 			get_next_line/get_next_line.c\
 
 #SRC?
