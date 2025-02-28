@@ -6,7 +6,7 @@
 /*   By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:31:30 by ldevoude          #+#    #+#             */
-/*   Updated: 2025/02/27 11:36:58 by ldevoude         ###   ########lyon.fr   */
+/*   Updated: 2025/02/28 16:32:31 by ldevoude         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 
 # define true 1
 # define false 0
+# define MANDELBROT_ID 1
+# define JULIA_ID 2
 # define WIN_WIDTH 1920 //500 //1920
 # define WIN_HEIGHT  1080//500 //1080
 # define X_MIN -2.0
@@ -69,7 +71,7 @@ int 		cross_window (t_mlx *t_mlx);
 void 		julia_formula(t_complex *c, t_complex *z, t_utils *misc_utils);
 void 		mandelbrot_formula(t_complex *c, t_complex *z, t_utils *misc_utils);
 int			get_color(int iter);
-void		*init_screen_mlx(t_mlx *t_mlx);
+void		*init_screen_mlx(t_mlx *t_mlx, char **argv);
 void		mandelbrot_set(t_mlx *mlx, t_complex *c, t_utils *misc_utils, t_complex *z);
 void		julia_set(t_mlx *mlx, t_complex *c, t_utils *misc_utils, t_complex *z);
 void		my_mlx_pixel_put(t_img *data, int x, int y, int color);

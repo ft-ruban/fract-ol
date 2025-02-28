@@ -10,8 +10,7 @@ void *free_null(void *target)
     return(target);
 }
 //Error messages that function will print a predefined error message to warn the user
-//status : WIP 10%
-//TODO : ft_printfd to send error to the error fd related + different error messages depending of the returned code!
+//status : COMPLETE 100%
 int error_msg(int error_code)
 {
     if (error_code == 1)
@@ -43,8 +42,7 @@ int error_msg(int error_code)
 
 //will determine which fractal was selected set set_num with the right numbercode verify if the number of arguments are valids and setup what need to be
 //set up at the start (like the x-y value of Julia fractal that was given by the user at launch) if error return 1 that will then lead to Error msg.
-//status : WIP 90% 
-//TODO : send different return value depending of the error type (to send differents error messages depending of the situation)
+//status : COMPLETE 100%
 
 int is_sets_available(char **argv, int *set_num, int argc, t_complex *c)
 {
@@ -54,7 +52,7 @@ int is_sets_available(char **argv, int *set_num, int argc, t_complex *c)
     {    
         if (argc != 2)
             return (2);
-        *set_num = 1;
+        *set_num = MANDELBROT_ID;
         return (0);
     }
     else if (!ft_strcmp (argv[1], "Julia"))
@@ -63,7 +61,7 @@ int is_sets_available(char **argv, int *set_num, int argc, t_complex *c)
             return (3);
         c->real_x = ft_atop(argv[2]);
         c->imaginary_y = ft_atop(argv[3]);
-        *set_num = 2;        
+        *set_num = JULIA_ID;        
         return (0);
     }
     else if (!ft_strcmp (argv[1], "Help"))

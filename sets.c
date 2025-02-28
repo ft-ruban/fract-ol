@@ -46,22 +46,19 @@ void	julia_set(t_mlx *mlx, t_complex *c, t_utils *misc_utils, t_complex *z)
 
 //would redirect the program depending of the set_num content that represent which fractal the user is looking for it also init some struct
 //that would be used in those said fractal.
-//status : WIP 85%
+//status : WIP 90%
 // TODO utils would contain the zoom ratio?
-// TODO make a define for MANDELBROT and JULIA and ??? to make program more readable?
 void sets(int set_num, t_mlx *mlx, t_complex *c)
 {
 	t_complex	z;
 	t_utils misc_utils;
 
 	misc_utils.y = 0;
-	if(set_num == 1)
+	if(set_num == MANDELBROT_ID)
 		mandelbrot_set(mlx, c, &misc_utils, &z);
 
-	if(set_num == 2)
+	if(set_num == JULIA_ID)
 	{
-		//c->real_x = -0.7;
-		//c->imaginary_y = 0.27015;
 		julia_set(mlx, c, &misc_utils,&z);
 	}
 	return;

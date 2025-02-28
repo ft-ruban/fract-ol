@@ -6,7 +6,7 @@
 #    By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/05 15:21:37 by ldevoude          #+#    #+#              #
-#    Updated: 2025/02/28 15:19:34 by ldevoude         ###   ########lyon.fr    #
+#    Updated: 2025/02/28 16:24:15 by ldevoude         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,7 +77,7 @@ FRACTOL_SRC    =   $(addsuffix .c, \
 						sets\
 						color\
 						error\
-						hooks)
+						commands)
 # MLX_SRC       =    $(addsuffix .c, \
 # 						mlx_clear_window\
 # 						mlx_destroy_display\

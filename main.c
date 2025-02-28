@@ -6,7 +6,7 @@
 /*   By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 15:53:21 by ldevoude          #+#    #+#             */
-/*   Updated: 2025/02/27 11:45:58 by ldevoude         ###   ########lyon.fr   */
+/*   Updated: 2025/02/28 16:28:35 by ldevoude         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,7 @@
 //once the screen is set the program continue depending of the fractal type selected and we do also have the two function that allow the feature
 //that close the program and created windows properly if you click on the cross OR press ESC
 //then it return 0 to signal that the program ended as expected without any errors.
-//status : WIP 80%
-//TODO an help parameter that would provide any information the user would need
-//TODO change hooks.c name into something more fancy like commands idk
+//status : WIP 90%
 //TODO create new function to handle the ZOOM feature
 //TODOFORBONUS new function to get new colors without changing iter
 //TODOFORBONUS new function that change the iter
@@ -33,8 +31,8 @@ int main(int argc, char *argv[])
 	int error_code;
 	
 	if ((error_code = is_sets_available(argv, &set_num, argc, &c)) != 0)
-		return (error_msg(error_code)); //TODO add int error_code to redirect user depending of the error
-	if (init_screen_mlx(&screen) == NULL)
+		return (error_msg(error_code));
+	if (init_screen_mlx(&screen, argv) == NULL)
 	{
 		error_code = 6;
 		return(error_msg(error_code));
