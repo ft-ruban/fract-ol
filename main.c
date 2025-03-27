@@ -6,7 +6,7 @@
 /*   By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 15:53:21 by ldevoude          #+#    #+#             */
-/*   Updated: 2025/03/27 15:36:01 by ldevoude         ###   ########lyon.fr   */
+/*   Updated: 2025/03/27 15:43:09 by ldevoude         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,13 @@ int main(int argc, char *argv[])
 	screen = ft_calloc(1, sizeof(t_mlx));
 	if (!screen)
 		return (0);
-	init_param(&param);
+	if(init_param(&param) == 1)
+		return (free_all(screen,&param,6));
+	
 	if ((error_code = is_sets_available(argv, argc, &param)) != 0)
 		return (free_all(screen,&param,error_code));
 	if (init_screen_mlx(screen, argv) == NULL)
-	{
-		error_code = 6;
-		free_all(screen,&param,6);
-		return(error_msg(error_code));
-	}	
+		return (free_all(screen,&param,6));	
 	param.screen = screen;
 	mlx_hook(screen->mlx_win, 17, 1L<<17, close_window, &param);
 	mlx_hook(screen->mlx_win, 2, 1L<<0, handle_keys, &param);

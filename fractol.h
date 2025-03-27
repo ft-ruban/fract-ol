@@ -6,7 +6,7 @@
 /*   By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:31:30 by ldevoude          #+#    #+#             */
-/*   Updated: 2025/03/27 15:35:34 by ldevoude         ###   ########lyon.fr   */
+/*   Updated: 2025/03/27 15:42:28 by ldevoude         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ typedef struct s_set_call
 #endif
 
 int 		main(int argc, char *argv[]);
-void 		init_param(t_set_call *param);
+int 		init_param(t_set_call *param);
 int			close_window(t_set_call *param);
 int 		change_color(int *color_factor);
 int 		key_move(int keycode, t_set_call *param);

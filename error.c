@@ -5,13 +5,17 @@
 // status : COMPLETE 100%
 int free_all(t_mlx *screen, t_set_call *param, int error_code)
 {
-    free(screen);
-    free(param->c);
-    free(param->z);
+    if (screen)
+        free(screen);
+    if(param->c)
+        free(param->c);
+    if(param->z)
+        free(param->z);
     return(error_msg(error_code));
 }
 //Error messages that function will print a predefined error message to warn the user
-//status : COMPLETE 100%
+//TODO complete with a case 6
+//status : COMPLETE 95%
 int error_msg(int error_code)
 {
     if (error_code == 1)
