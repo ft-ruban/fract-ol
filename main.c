@@ -6,7 +6,7 @@
 /*   By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 15:53:21 by ldevoude          #+#    #+#             */
-/*   Updated: 2025/03/27 14:45:39 by ldevoude         ###   ########lyon.fr   */
+/*   Updated: 2025/03/27 15:23:25 by ldevoude         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,19 +30,21 @@ int main(int argc, char *argv[])
 	int error_code;
 
 	screen = ft_calloc(1, sizeof(t_mlx));
+	if (!screen)
+		return (0);
 	init_param(&param);
-	
 	if ((error_code = is_sets_available(argv, argc, &param)) != 0)
+	{
+		free_all(screen,&param,error_code);
 		return (error_msg(error_code));
+	}
 	if (init_screen_mlx(screen, argv) == NULL)
 	{
-		error_code = 6;
-		free(screen);
-		return(error_msg(error_code));
-	}
-	
+		//error_code = 6;
+		free_all(screen,&param,6);
+		//return(error_msg(error_code));
+	}	
 	param.screen = screen;
-
 	mlx_hook(screen->mlx_win, 17, 1L<<17, close_window, &param);
 	mlx_hook(screen->mlx_win, 2, 1L<<0, handle_keys, &param);
 	mlx_mouse_hook(screen->mlx_win, zoom, &param);
@@ -50,6 +52,4 @@ int main(int argc, char *argv[])
 	mlx_loop(screen->mlx); //someone told me it was a good idea here instead in mlx.c
 }
 
-//TODO 
-//TODO rm the -g flag in makefile at the end
 

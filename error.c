@@ -3,11 +3,12 @@
 
 // Free_null function because it is more readable that way. may be useless now tho
 // status : COMPLETE 100%
-void *free_null(void *target)
+void free_all(t_mlx *screen, t_set_call *param, int error_code)
 {
-    free(target);
-    target = NULL;
-    return(target);
+    free(screen);
+    free(param->c);
+    free(param->z);
+    error_msg(error_code);
 }
 //Error messages that function will print a predefined error message to warn the user
 //status : COMPLETE 100%
@@ -37,7 +38,7 @@ int error_msg(int error_code)
         ft_printfd("Error code : %d\n I cannot recognize your arguments, check for any typos and if your fractal does exist inside of the program.\n", error_code);
     
     ft_printfd("do not hesitate to use the help argument (./fractol Help) to get more information!");
-    return (error_code);
+    exit(error_code);
 }
 
 //will determine which fractal was selected set set_num with the right numbercode verify if the number of arguments are valids and setup what need to be
