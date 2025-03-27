@@ -3,12 +3,12 @@
 
 // Free_null function because it is more readable that way. may be useless now tho
 // status : COMPLETE 100%
-void free_all(t_mlx *screen, t_set_call *param, int error_code)
+void free_all(t_mlx *screen, t_set_call *param)
 {
     free(screen);
     free(param->c);
     free(param->z);
-    error_msg(error_code);
+   //error_msg(error_code);
 }
 //Error messages that function will print a predefined error message to warn the user
 //status : COMPLETE 100%

@@ -6,7 +6,7 @@
 /*   By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 15:53:21 by ldevoude          #+#    #+#             */
-/*   Updated: 2025/03/27 15:23:25 by ldevoude         ###   ########lyon.fr   */
+/*   Updated: 2025/03/27 15:30:34 by ldevoude         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ int main(int argc, char *argv[])
 	}
 	if (init_screen_mlx(screen, argv) == NULL)
 	{
-		//error_code = 6;
+		error_code = 6;
 		free_all(screen,&param,6);
-		//return(error_msg(error_code));
+		return(error_msg(error_code));
 	}	
 	param.screen = screen;
 	mlx_hook(screen->mlx_win, 17, 1L<<17, close_window, &param);
