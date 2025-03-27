@@ -6,12 +6,12 @@
 /*   By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 15:21:27 by ldevoude          #+#    #+#             */
-/*   Updated: 2025/03/27 15:30:58 by ldevoude         ###   ########lyon.fr   */
+/*   Updated: 2025/03/27 15:32:52 by ldevoude         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
+//need to take care of the security of malloc
 void init_param(t_set_call *param) {
     param->c = ft_calloc(1, sizeof(t_complex));
     //if(!param->c)

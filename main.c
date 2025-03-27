@@ -6,7 +6,7 @@
 /*   By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 15:53:21 by ldevoude          #+#    #+#             */
-/*   Updated: 2025/03/27 15:30:34 by ldevoude         ###   ########lyon.fr   */
+/*   Updated: 2025/03/27 15:36:01 by ldevoude         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,7 @@ int main(int argc, char *argv[])
 		return (0);
 	init_param(&param);
 	if ((error_code = is_sets_available(argv, argc, &param)) != 0)
-	{
-		free_all(screen,&param,error_code);
-		return (error_msg(error_code));
-	}
+		return (free_all(screen,&param,error_code));
 	if (init_screen_mlx(screen, argv) == NULL)
 	{
 		error_code = 6;
