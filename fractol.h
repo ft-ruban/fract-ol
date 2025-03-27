@@ -6,7 +6,7 @@
 /*   By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:31:30 by ldevoude          #+#    #+#             */
-/*   Updated: 2025/02/28 16:32:31 by ldevoude         ###   ########lyon.fr   */
+/*   Updated: 2025/03/27 14:45:50 by ldevoude         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@
 # define false 0
 # define MANDELBROT_ID 1
 # define JULIA_ID 2
-# define WIN_WIDTH 1920 //500 //1920
-# define WIN_HEIGHT  1080//500 //1080
+# define WIN_WIDTH 500 //500 //1920
+# define WIN_HEIGHT  500//500 //1080
 # define X_MIN -2.0
 # define X_MAX 1.0
 # define Y_MIN -1.5

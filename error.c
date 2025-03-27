@@ -1,8 +1,8 @@
 #include "fractol.h"
 #include <string.h> //TORM BFR PUSH
 
-//Free_null function because it is more readable that way.
-//status : COMPLETE 100%
+// Free_null function because it is more readable that way. may be useless now tho
+// status : COMPLETE 100%
 void *free_null(void *target)
 {
     free(target);
