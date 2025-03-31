@@ -6,7 +6,7 @@
 /*   By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:31:30 by ldevoude          #+#    #+#             */
-/*   Updated: 2025/03/27 15:42:28 by ldevoude         ###   ########lyon.fr   */
+/*   Updated: 2025/03/31 16:39:31 by ldevoude         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,14 +73,14 @@ typedef struct s_set_call
 #endif
 
 int 		main(int argc, char *argv[]);
-int 		init_param(t_set_call *param);
+int 		init_param(t_set_call *param, t_mlx *screen);
 int			close_window(t_set_call *param);
-int 		change_color(int *color_factor);
+int			change_color(int *color_factor);
 int 		key_move(int keycode, t_set_call *param);
 int 		handle_keys(int keycode, t_set_call *param);
 int 		zoom (int type, int x, int y, t_set_call *param);
 void 		julia_formula(t_complex *z, t_complex *c, t_utils *misc_utils);
-int 		color_seed();
+int			color_seed();
 int			get_color(int iter, int color_factor);
 void		*init_screen_mlx(t_mlx *t_mlx, char **argv);
 void		mandelbrot_set(t_mlx *mlx, t_complex *c, t_utils *misc_utils, t_complex *z);
@@ -88,6 +88,7 @@ void		julia_set(t_mlx *mlx, t_complex *c, t_utils *misc_utils, t_complex *z);
 void		my_mlx_pixel_put(t_img *data, int x, int y, int color);
 int 		is_sets_available(char **argv, int argc, t_set_call *param);
 int 		error_msg(int error_code);
+int 		error_msg_malloc(int error_code);
 int 		free_all(t_mlx *screen, t_set_call *param, int error_code);
 void 		*free_null(void  *target);
 void 		pixel_coordinates(t_complex *center, t_utils *pixel, t_complex *out, double zoom);

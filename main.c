@@ -6,7 +6,7 @@
 /*   By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 15:53:21 by ldevoude          #+#    #+#             */
-/*   Updated: 2025/03/27 15:43:09 by ldevoude         ###   ########lyon.fr   */
+/*   Updated: 2025/03/31 16:48:04 by ldevoude         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,14 @@ int main(int argc, char *argv[])
 	screen = ft_calloc(1, sizeof(t_mlx));
 	if (!screen)
 		return (0);
-	if(init_param(&param) == 1)
-		return (free_all(screen,&param,6));
-	
-	if ((error_code = is_sets_available(argv, argc, &param)) != 0)
+	if(init_param(&param, screen) == 1) //DONE
+		return (error_msg_malloc(6));
+	if ((error_code = is_sets_available(argv, argc, &param)) != 0) //DONE
 		return (free_all(screen,&param,error_code));
-	if (init_screen_mlx(screen, argv) == NULL)
-		return (free_all(screen,&param,6));	
-	param.screen = screen;
-	mlx_hook(screen->mlx_win, 17, 1L<<17, close_window, &param);
+	if (init_screen_mlx(screen, argv) == NULL) //DONE
+		return (free_all(screen,&param,6));	//DONE
+	param.screen = screen; //DONE
+	mlx_hook(screen->mlx_win, 17, 1L<<17, close_window, &param); //A FAIRE
 	mlx_hook(screen->mlx_win, 2, 1L<<0, handle_keys, &param);
 	mlx_mouse_hook(screen->mlx_win, zoom, &param);
 	mlx_loop_hook(screen->mlx, set, &param);

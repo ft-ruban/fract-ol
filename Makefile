@@ -6,7 +6,7 @@
 #    By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/05 15:21:37 by ldevoude          #+#    #+#              #
-#    Updated: 2025/03/27 13:40:04 by ldevoude         ###   ########lyon.fr    #
+#    Updated: 2025/03/31 16:00:08 by ldevoude         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ CC             =   cc
 #####################################################
 #					FLAGS							#
 #####################################################
-CFLAGS         =   -Wall -Wextra -Werror -o3 #dl -g before push
+CFLAGS         =   -Wall -Wextra -Werror -g #dl -g before push
 CPPFLAGS	   =	-I $(DIR_MLX)/  # Include headers from both directories
 MLXFLAGS	   =	-lX11 -lXext
 #####################################################

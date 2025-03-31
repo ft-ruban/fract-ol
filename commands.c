@@ -6,7 +6,7 @@
 /*   By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 14:07:55 by ldevoude          #+#    #+#             */
-/*   Updated: 2025/03/27 14:48:25 by ldevoude         ###   ########lyon.fr   */
+/*   Updated: 2025/03/31 16:40:46 by ldevoude         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,12 @@ int	key_move(int keycode, t_set_call *param)
 int	change_color(int *color_factor)
 {
 	*color_factor = color_seed();
-	return (0);
+	if (*color_factor == -1)
+	{
+		return (1);
+	}
+	else
+		return (0);
 }
 
 int	handle_keys(int keycode, t_set_call *param)

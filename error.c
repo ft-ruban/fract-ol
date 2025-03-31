@@ -11,6 +11,11 @@ int free_all(t_mlx *screen, t_set_call *param, int error_code)
         free(param->c);
     if(param->z)
         free(param->z);
+    if (error_code == 6)
+        return (error_msg_malloc(6));
+    if (error_code == -1)
+        return (1);
+    else
     return(error_msg(error_code));
 }
 //Error messages that function will print a predefined error message to warn the user
@@ -44,7 +49,11 @@ int error_msg(int error_code)
     ft_printfd("do not hesitate to use the help argument (./fractol Help) to get more information!");
     return(error_code);
 }
-
+int error_msg_malloc(int error_code)
+{
+    ft_printfd("Error code : %d \nthere was an issue with memory allocation\n", error_code);
+    return (error_code);
+}
 //will determine which fractal was selected set set_num with the right numbercode verify if the number of arguments are valids and setup what need to be
 //set up at the start (like the x-y value of Julia fractal that was given by the user at launch) if error return 1 that will then lead to Error msg.
 //status : COMPLETE 100%
@@ -53,19 +62,23 @@ int is_sets_available(char **argv, int argc, t_set_call *param)
 {
     if (argc == 1)
         return (1);
-    else if (!ft_strcmp (argv[1], "Mandelbrot")) {
+    else if (!ft_strcmp (argv[1], "Mandelbrot")) 
+    {
         if (argc != 2)
             return (2);
         param->mandelbrot = TRUE;
         return(0);
-    } else if (!ft_strcmp (argv[1], "Julia")) {
+    } 
+    else if (!ft_strcmp (argv[1], "Julia")) 
+    {
         if (argc != 4)
             return (3);
         param->mandelbrot = FALSE;
         param->c->real_x = ft_atop(argv[2]);
         param->c->imaginary_y = ft_atop(argv[3]);
         return (0);
-    } else if (!ft_strcmp (argv[1], "Help"))
+    } 
+    else if (!ft_strcmp (argv[1], "Help"))
         return (4);
     else
         return (5);

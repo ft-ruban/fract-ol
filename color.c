@@ -6,23 +6,20 @@
 /*   By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 13:50:00 by ldevoude          #+#    #+#             */
-/*   Updated: 2025/03/27 13:50:03 by ldevoude         ###   ########lyon.fr   */
+/*   Updated: 2025/03/31 16:46:36 by ldevoude         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	color_seed(void)
+int	color_seed()
 {
 	unsigned long	seed;
 	void			*ptr;
 
 	ptr = malloc(1);
 	if (!ptr)
-	{
-		ft_printfd("malloc");
-		exit(EXIT_FAILURE);
-	}
+		return (-1);
 	seed = (unsigned long)ptr;
 	free(ptr);
 	return (seed % (1L << 16));
