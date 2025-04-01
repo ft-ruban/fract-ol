@@ -6,7 +6,7 @@
 /*   By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 14:07:55 by ldevoude          #+#    #+#             */
-/*   Updated: 2025/04/01 09:55:36 by ldevoude         ###   ########lyon.fr   */
+/*   Updated: 2025/04/01 11:57:56 by ldevoude         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	close_window(t_set_call *param)
 {
-	printf("Closing\n"); //Printf interditi
+	ft_printf("Closing\n");
 	if (param->screen->mlx_win)
 		mlx_loop_end(param->screen->mlx);
 	if (param->screen->img.img)
@@ -66,7 +66,7 @@ int	handle_keys(int keycode, t_set_call *param)
 	else
 	{
 		if (change_color(&param->color_factor) == 1)
-			return(close_window(param));
+			return (close_window(param));
 	}
 	return (1);
 }
@@ -83,16 +83,16 @@ int	zoom(int type, int x, int y, t_set_call *param)
 	}
 	if (param->mandelbrot == TRUE)
 	{
-		param->c->real_x += ((double)x - WIN_WIDTH_HALF) / WIN_WIDTH
+		param->c->real_x += ((double)x - (WIN_WIDTH / 2)) / WIN_WIDTH
 			* param->zoom;
-		param->c->imaginary_y += ((double)y - WIN_HEIGHT_HALF) / WIN_WIDTH
+		param->c->imaginary_y += ((double)y - (WIN_HEIGHT / 2)) / WIN_WIDTH
 			* param->zoom;
 	}
 	else
 	{
-		param->z->real_x += ((double)x - WIN_WIDTH_HALF) / WIN_WIDTH
+		param->z->real_x += ((double)x - (WIN_WIDTH / 2)) / WIN_WIDTH
 			* param->zoom;
-		param->z->imaginary_y += ((double)y - WIN_HEIGHT_HALF) / WIN_WIDTH
+		param->z->imaginary_y += ((double)y - (WIN_HEIGHT / 2)) / WIN_WIDTH
 			* param->zoom;
 	}
 	return (0);

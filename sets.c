@@ -6,8 +6,8 @@
 //TODO: See if there any way to improve the perf of that, I do believe there is some.
 
 void pixel_coordinates(t_complex *center, t_utils *pixel, t_complex *out, double zoom) {
-    out->real_x = center->real_x + (pixel->x - WIN_WIDTH_HALF) / (double)WIN_WIDTH * zoom;
-    out->imaginary_y = center->imaginary_y + (pixel->y - WIN_HEIGHT_HALF) / (double)WIN_WIDTH * zoom;
+    out->real_x = center->real_x + (pixel->x - (WIN_WIDTH / 2)) / (double)WIN_WIDTH * zoom;
+    out->imaginary_y = center->imaginary_y + (pixel->y - (WIN_HEIGHT / 2)) / (double)WIN_WIDTH * zoom;
 }
 
 void initialize_complex(t_set_call *param, t_complex *z, t_complex *c, t_utils *misc_utils) {
