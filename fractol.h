@@ -6,21 +6,21 @@
 /*   By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:31:30 by ldevoude          #+#    #+#             */
-/*   Updated: 2025/04/01 11:56:17 by ldevoude         ###   ########lyon.fr   */
+/*   Updated: 2025/04/01 13:45:18 by ldevoude         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libftx/libft.h"
-#include "mlx_linux/mlx.h"
-#include <math.h>
-#include <stdio.h> //dlt before push
-#include <stdlib.h>
-// 500 //1080
-// 500 //1920
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
+# include "libftx/libft.h"
+# include "mlx_linux/mlx.h"
+# include <math.h>
+# include <stdio.h> //dlt before push
+# include <stdlib.h>
+
+// 500 //1080
+// 500 //1920
 # define TRUE 1
 # define FALSE 0
 # define MANDELBROT_ID 1
