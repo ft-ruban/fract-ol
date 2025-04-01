@@ -6,7 +6,7 @@
 /*   By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 14:07:55 by ldevoude          #+#    #+#             */
-/*   Updated: 2025/03/31 16:40:46 by ldevoude         ###   ########lyon.fr   */
+/*   Updated: 2025/04/01 09:55:36 by ldevoude         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	close_window(t_set_call *param)
 {
-	printf("Closing\n");
+	printf("Closing\n"); //Printf interditi
 	if (param->screen->mlx_win)
 		mlx_loop_end(param->screen->mlx);
 	if (param->screen->img.img)
@@ -64,7 +64,10 @@ int	handle_keys(int keycode, t_set_call *param)
 		|| keycode == 65364)
 		return (key_move(keycode & 0x7, param));
 	else
-		change_color(&param->color_factor);
+	{
+		if (change_color(&param->color_factor) == 1)
+			return(close_window(param));
+	}
 	return (1);
 }
 
