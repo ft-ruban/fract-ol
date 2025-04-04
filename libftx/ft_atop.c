@@ -1,40 +1,46 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atop.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/02 10:33:33 by ldevoude          #+#    #+#             */
+/*   Updated: 2025/04/02 10:40:42 by ldevoude         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-double	convert_ascii_to_double(int i, const char *nptr, int negative)
+double	convert_ascii_to_double(int i, const char *nptr, int negative,
+		double result)
 {
-    double result = 0.0;
-    double decimal_divisor = 1.0;
-    int is_fractional = 0;
+	double	decimal_divisor;
+	int		is_fractional;
 
-    while ((nptr[i] >= '0' && nptr[i] <= '9') || nptr[i] == '.' || nptr[i] == ',')
-    {
-        if (nptr[i] == '.' || nptr[i] == ',')
-        {
-            if (is_fractional) // Prevent multiple decimal points
-                break;
-            is_fractional = 1;
-            i++;
-            continue;
-        }
-        
-        result = result * 10 + (nptr[i] - '0');
-
-        if (is_fractional)
-            decimal_divisor *= 10.0;
-
-        i++;
-    }
-
-    result = result / decimal_divisor;
-    
-    if (negative)
-        result *= -1.0;
-
-    printf("Final result before returning: %g\n", result);
-    
-    return result;
+	decimal_divisor = 1.0;
+	is_fractional = 0;
+	while ((nptr[i] >= '0' && nptr[i] <= '9') || nptr[i] == '.'
+		|| nptr[i] == ',')
+	{
+		if (nptr[i] == '.' || nptr[i] == ',')
+		{
+			if (is_fractional)
+				break ;
+			is_fractional = 1;
+			i++;
+			continue ;
+		}
+		result = result * 10 + (nptr[i] - '0');
+		if (is_fractional)
+			decimal_divisor *= 10.0;
+		i++;
+	}
+	result = result / decimal_divisor;
+	if (negative)
+		result *= -1.0;
+	return (result);
 }
-
 
 double	ft_atop(const char *nptr)
 {
@@ -51,5 +57,5 @@ double	ft_atop(const char *nptr)
 			negative = TRUE;
 		i++;
 	}
-	return (convert_ascii_to_double(i, nptr, negative));
+	return (convert_ascii_to_double(i, nptr, negative, 0.0));
 }

@@ -6,7 +6,7 @@
 /*   By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 16:07:07 by ldevoude          #+#    #+#             */
-/*   Updated: 2025/02/27 13:09:49 by ldevoude         ###   ########lyon.fr   */
+/*   Updated: 2025/04/02 10:33:17 by ldevoude         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 # define LIBFT_H
 # define TRUE 1
 # define FALSE 0
-# include <stdlib.h>
-# include <unistd.h>
 # include "get_next_line/get_next_line.h"
 # include "printf/ft_printf.h"
+# include <stdlib.h>
+# include <unistd.h>
 
 int		ft_atoi(const char *nptr);
 double	ft_atop(const char *nptr);
@@ -42,7 +42,7 @@ void	ft_putnbr_fd(int n, int fd);
 void	ft_putstr_fd(char *s, int fd);
 char	**ft_split(char const *s, char c);
 char	*ft_strchr(const char *s, int c);
-int	    ft_strcmp(const char *s1, const char *s2);
+int		ft_strcmp(const char *s1, const char *s2);
 char	*ft_strdup(const char *s);
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 char	*ft_strjoin(char const *s1, char const *s2);
@@ -59,9 +59,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
 char	*ft_utoa(unsigned int n);
-int	    ft_printf(const char *str, ...);
-int	    ft_printf_cases(va_list ptr, int i, const char *str,int *ptr_return_value);
-int	    ft_printfd(const char *str, ...);
-int	    ft_printfd_cases(va_list ptr, int i, const char *str,int *ptr_return_value);
+int		ft_printf(const char *str, ...);
+int		ft_printf_cases(va_list ptr, int i, const char *str,
+			int *ptr_return_value);
+int		ft_printfd(const char *str, ...);
+int		ft_printfd_cases(va_list ptr, int i, const char *str,
+			int *ptr_return_value);
 
 #endif

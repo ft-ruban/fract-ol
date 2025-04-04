@@ -6,7 +6,7 @@
 /*   By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:31:30 by ldevoude          #+#    #+#             */
-/*   Updated: 2025/04/01 13:45:18 by ldevoude         ###   ########lyon.fr   */
+/*   Updated: 2025/04/02 13:57:44 by ldevoude         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 # include "libftx/libft.h"
 # include "mlx_linux/mlx.h"
-# include <math.h>
-# include <stdio.h> //dlt before push
+//# include <math.h>
+//# include <stdio.h> //dlt before push
 # include <stdlib.h>
 
 // 500 //1080

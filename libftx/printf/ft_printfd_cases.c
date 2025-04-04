@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printfd_cases.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/02 10:42:39 by ldevoude          #+#    #+#             */
+/*   Updated: 2025/04/02 10:42:54 by ldevoude         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 void	ft_printfd_num(va_list ptr, int i, const char *str,
@@ -74,7 +86,8 @@ void	ft_printfd_pointer(va_list ptr, int *ptr_return_value)
 	*ptr_return_value += len;
 }
 
-void	ft_printd_hex(va_list ptr, int i, const char *str, int *ptr_return_value)
+void	ft_printd_hex(va_list ptr, int i, const char *str,
+		int *ptr_return_value)
 {
 	char			*convert;
 	unsigned int	int_temp;

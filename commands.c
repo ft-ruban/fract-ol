@@ -6,7 +6,7 @@
 /*   By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 14:07:55 by ldevoude          #+#    #+#             */
-/*   Updated: 2025/04/01 11:57:56 by ldevoude         ###   ########lyon.fr   */
+/*   Updated: 2025/04/04 07:47:39 by ldevoude         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,7 @@ int	change_color(int *color_factor)
 {
 	*color_factor = color_seed();
 	if (*color_factor == -1)
-	{
 		return (1);
-	}
 	else
 		return (0);
 }

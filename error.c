@@ -6,7 +6,7 @@
 /*   By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 11:42:44 by ldevoude          #+#    #+#             */
-/*   Updated: 2025/04/01 11:47:33 by ldevoude         ###   ########lyon.fr   */
+/*   Updated: 2025/04/04 08:01:36 by ldevoude         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ int	is_sets_available(char **argv, int argc, t_set_call *param)
 		if (argc != 4)
 			return (3);
 		param->mandelbrot = FALSE;
-		param->c->real_x = ft_atop(argv[2]);
+		param->c->real_x = ft_atop(argv[2]); //TODO gerer si on m'envois pas bon arg
 		param->c->imaginary_y = ft_atop(argv[3]);
 		return (0);
 	}
