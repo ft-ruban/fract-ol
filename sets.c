@@ -6,21 +6,14 @@
 /*   By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 10:30:37 by ldevoude          #+#    #+#             */
-/*   Updated: 2025/04/04 09:40:27 by ldevoude         ###   ########lyon.fr   */
+/*   Updated: 2025/04/05 11:20:06 by ldevoude         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-// iterate to each pixel
-//+ give the middle point of the screen and redirect
-// to the right formula depending of the asked fractal
-// status : WIP 85%
-// TODO: Maybe merge all my fractal and just make a
-// condition that would redirect to any formula
-// depending of the user's needs
-// TODO: See if there any way to improve the perf of that,
-// I do believe there is some.
+//give the coordinate x-y to the pixel inside of my t_set_call param
+//convert the coordinates of pixels into a complex plan 
 
 void	pixel_coordinates(t_complex *center, t_utils *pixel, t_complex *out,
 		double zoom)
@@ -30,6 +23,9 @@ void	pixel_coordinates(t_complex *center, t_utils *pixel, t_complex *out,
 	out->imaginary_y = center->imaginary_y + (pixel->y - (WIN_HEIGHT / 2))
 		/ (double)WIN_WIDTH * zoom;
 }
+
+// determine if we are dealing with Julia or Mandelbrot
+// if Mandelbrot real_x and imaginary_y == 0.0
 
 void	initialize_complex(t_set_call *param, t_complex *z, t_complex *c,
 		t_utils *misc_utils)
@@ -43,6 +39,14 @@ void	initialize_complex(t_set_call *param, t_complex *z, t_complex *c,
 	else
 		pixel_coordinates(param->z, misc_utils, z, param->zoom);
 }
+//check if we are dealing with mandelbrot or not
+//then while loop to draw pixel by pixel on the img
+//by init the complex plane then determine the boundary of pix
+//put the pixe and color it depending of the boundary of pix
+//mandelbrot c is 0 while in Julia its defined by user
+//once loop is done we put the img to the mlx window
+//that function will repeat each time a new parameter is
+//sent with keyboard+mouse action
 
 int	set(t_set_call *param)
 {

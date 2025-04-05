@@ -6,28 +6,26 @@
 /*   By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 15:53:21 by ldevoude          #+#    #+#             */
-/*   Updated: 2025/04/01 15:05:38 by ldevoude         ###   ########lyon.fr   */
+/*   Updated: 2025/04/05 11:08:00 by ldevoude         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-// Main function that will check if the arguments
-// are valid if not it will redirect to an error 
-// message then it will init the screen with mlx
-// once the screen is set the program continue
-// depending of the fractal type selected and
-// we do also have the two function that allow the feature
-// that close the program and created windows properly
-// if you click on the cross OR press ESC
-// then it return 0 to signal that the program ended
-// as expected without any errors.
-// status : WIP 90%
-// TODO create new function to handle the ZOOM feature
-// TODOFORBONUS new function to get new colors without changing iter
-// TODOFORBONUS new function that change the iter
-// TODOFORBONUS zoom feature that follow the MOUSE cursor
-// TODOFORBONUS direction arrows
+// init the screen struct
+// launch init_param if malloc fail return related error
+// check the entry
+// 0 mean it went well
+// another value mean that something happened
+// said value would be used as an error code
+// to return a specific msg and free everything
+// init screen for mlx
+// we associate the screen ptr in param to screen struct
+// commands to close win to handle keyboards
+// and mouse actions
+// loop to launch set necessary to change it each time 
+// user does an action 
+// loop to keep the program running
 
 int	main(int argc, char *argv[])
 {
@@ -40,7 +38,7 @@ int	main(int argc, char *argv[])
 		return (0);
 	if (init_param(&param, screen) == 1)
 		return (error_msg_malloc(6));
-	error_code = is_sets_available(argv, argc, &param);
+	error_code = is_sets_available(argv, argc, &param, screen);
 	if (error_code != 0)
 		return (free_all(screen, &param, error_code));
 	if (init_screen_mlx(screen, argv) == NULL)

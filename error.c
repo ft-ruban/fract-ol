@@ -6,15 +6,15 @@
 /*   By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 11:42:44 by ldevoude          #+#    #+#             */
-/*   Updated: 2025/04/04 08:01:36 by ldevoude         ###   ########lyon.fr   */
+/*   Updated: 2025/04/05 11:16:40 by ldevoude         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 #include <string.h> //TORM BFR PUSH
 
-// to free everything
-// status : COMPLETE 100%
+// to free everything before leaving
+
 int	free_all(t_mlx *screen, t_set_call *param, int error_code)
 {
 	if (screen)
@@ -46,12 +46,10 @@ int	error_msg_help(void)
 	ft_printf("./fractol Julia -0.12 -0.77\n./fractol Julia -1.476 0.0\n");
 	ft_printf("use ESC or close the window by clicking on the window cross ");
 	ft_printf("to close the program\nto zoom in and out use the mouse wheel\n");
-	return (0);
+	exit(4);
 }
 // Error messages that function will print a predefined
 // error message to warn the user
-// TODO complete with a case 6
-// status : COMPLETE 95%
 
 int	error_msg(int error_code)
 {
@@ -79,7 +77,7 @@ int	error_msg(int error_code)
 		ft_printfd("and if your fractal does exist inside of the program.\n");
 	}
 	ft_printfd("do not hesitate to use the help argument (./fractol Help)");
-	return (error_code);
+	exit(error_code);
 }
 
 int	error_msg_malloc(int error_code)
@@ -89,14 +87,16 @@ int	error_msg_malloc(int error_code)
 	return (error_code);
 }
 
-// will determine which fractal was selected set set_num with
-// the right numbercode verify if the number of arguments
-// are valids and setup what need to be
-// set up at the start (like the x-y value of Julia fractal that was given
-// by the user at launch) if error return 1 that will then lead to Error msg.
-// status : COMPLETE 100%
+// if argc = 1 it mean we got no instructions at launch
+// Mandelbrot should not get anything
+// Julia require 2 additional arg
+// convert from arg to double if Julia
+// that would be the x(real) and y(imaginary) 
+// to determine the c of Julia
+// if Help return help msg
+// 5 if nothing suit all those conditions.
 
-int	is_sets_available(char **argv, int argc, t_set_call *param)
+int	is_sets_available(char **argv, int argc, t_set_call *param, t_mlx *screen)
 {
 	if (argc == 1)
 		return (1);
@@ -112,8 +112,8 @@ int	is_sets_available(char **argv, int argc, t_set_call *param)
 		if (argc != 4)
 			return (3);
 		param->mandelbrot = FALSE;
-		param->c->real_x = ft_atop(argv[2]); //TODO gerer si on m'envois pas bon arg
-		param->c->imaginary_y = ft_atop(argv[3]);
+		param->c->real_x = ft_atop(argv[2], param, screen);
+		param->c->imaginary_y = ft_atop(argv[3], param, screen);
 		return (0);
 	}
 	else if (!ft_strcmp(argv[1], "Help"))

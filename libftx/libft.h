@@ -6,7 +6,7 @@
 /*   By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 16:07:07 by ldevoude          #+#    #+#             */
-/*   Updated: 2025/04/02 10:33:17 by ldevoude         ###   ########lyon.fr   */
+/*   Updated: 2025/04/04 11:00:46 by ldevoude         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 # include <unistd.h>
 
 int		ft_atoi(const char *nptr);
-double	ft_atop(const char *nptr);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t nmeb, size_t size);
 int		ft_isalnum(int c);

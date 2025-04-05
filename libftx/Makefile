@@ -10,9 +10,9 @@ CC = cc
 #####################################################
 #					DIRECTORY						#
 #####################################################
+DIR_LIBFTX  = .
 DGNL        = ./get_next_line
 DPRINTF     = ./printf
-#D          =
 #####################################################
 #					FLAGS							#
 #####################################################
@@ -21,7 +21,6 @@ CFLAGS = -Wall -Wextra -Werror
 #					FILES							#
 #####################################################
 CFILES = 	ft_atoi.c\
-			ft_atop.c\
 			ft_bzero.c \
 			ft_calloc.c \
 			ft_isalnum.c \
@@ -65,7 +64,6 @@ CFILES = 	ft_atoi.c\
 			printf/ft_printfd_cases.c\
 			get_next_line/get_next_line.c\
 
-#SRC?
 OBJ = $(CFILES:.c=.o)
 HEADERS		=	$(DGNL)/get_next_line.h\
 				$(DPRINTF)/ft_printf.h
@@ -78,13 +76,17 @@ AR				=	ar
 AFLAG			=	rcs
 LIBPRINTF		=	$(DPRINTF)/printf.a
 
+#####################################################
+#					HEADER  						#
+#####################################################
+HEADER_LIBFTX = $(DIR_LIBFTX)/libft.h
 
 #####################################################
 #                   TARGETS                         #
 #####################################################
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) $(HEADER_LIBFTX) Makefile
 	$(AR) $(AFLAG) $(NAME) $(OBJ)
 
 $(LIBPRINTF):
@@ -93,40 +95,26 @@ $(LIBPRINTF):
 #rules to create objects files
 %.o: %.c $(HEADERS)
 	$(CC) $(CFLAGS) -c $< -o $@
+%.d: %.c
+	@$(CC) $(CFLAGS) -M $< > $@
 
 # Clean objects and gen files
 clean:
-	rm -f $(OBJ)
-	$(MAKE) -C $(DPRINTF) clean || true
+	@rm -f $(OBJ)
+	@rm -f $(DIR_LIBFTX)/printf/*.o
+	@rm -f $(DIR_LIBFTX)/get_next_line/*.o
+	@rm -f $(DIR_LIBFTX)/*.d
+	@rm -f $(DIR_LIBFTX)/printf/*.d
+	@rm -f $(DIR_LIBFTX)/get_next_line/*.d
+	@echo "Cleaning completed!"
 
 # Fclean  (complete clean)
 fclean: clean
 	rm -f $(NAME)
-	$(MAKE) -C $(DPRINTF) clean || true
 
 #rebuild
 re: fclean all
 
 .PHONY: all clean fclean re
-#OFILES = $(CFILES:%.c=%.o)
 
-#all: $(NAME)
-
-#$(NAME): $(OFILES)
-#	ar rcs $(NAME) $^
-
-#./%.o: ./%.c libft.h Makefile
-#	$(CC) $(CFLAGS) -c $< -o $@
-
-#clean:
-#	rm -f $(OFILES)
-
-#fclean:
-#	$(MAKE) clean
-#	rm -f $(NAME)
-
-#re:
-#	$(MAKE) fclean 
-#	$(MAKE) all
-
-#.PHONY: all clean fclean re
+-include $(CFILES:.c=.d)

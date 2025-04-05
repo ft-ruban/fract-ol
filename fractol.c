@@ -6,13 +6,15 @@
 /*   By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 15:21:27 by ldevoude          #+#    #+#             */
-/*   Updated: 2025/04/01 11:29:12 by ldevoude         ###   ########lyon.fr   */
+/*   Updated: 2025/04/05 11:14:08 by ldevoude         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-// need to take care of the security of malloc
+// init parameter that would be used during the draw
+// of our fractal and get a color from change_color
+// it is secured
 int	init_param(t_set_call *param, t_mlx *screen)
 {
 	param->c = ft_calloc(1, sizeof(t_complex));
