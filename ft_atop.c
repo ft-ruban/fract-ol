@@ -6,7 +6,7 @@
 /*   By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 15:50:15 by ldevoude          #+#    #+#             */
-/*   Updated: 2025/04/05 13:14:41 by ldevoude         ###   ########lyon.fr   */
+/*   Updated: 2025/04/08 13:50:42 by ldevoude         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,8 @@ double	ft_atop(const char *nptr, t_set_call *param, t_mlx *screen)
 			negative = TRUE;
 		i++;
 	}
+	if (nptr[i] == '\0')
+		free_all(screen, param, 3);
 	if (fractional_checker(i, FALSE, nptr) == 1)
 		free_all(screen, param, 3);
 	return (convert_ascii_to_double(i, nptr, negative, 0.0));
