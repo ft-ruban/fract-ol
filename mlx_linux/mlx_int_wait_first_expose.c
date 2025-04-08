@@ -16,7 +16,9 @@
 
 int	mlx_int_wait_first_expose(t_xvar *xvar,Window win)
 {
-  XEvent	ev;
+  XEvent ev;
+
+  memset(&ev, 0, sizeof(ev));
 
   XWindowEvent(xvar->display,win,ExposureMask,&ev);
   XPutBackEvent(xvar->display,&ev);
