@@ -6,7 +6,7 @@
 #    By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/05 15:21:37 by ldevoude          #+#    #+#              #
-#    Updated: 2025/04/05 13:24:26 by ldevoude         ###   ########lyon.fr    #
+#    Updated: 2025/04/08 14:52:45 by ldevoude         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -140,7 +140,7 @@ $(NAME): $(FRACTOL_OBJ) $(LIBLIBFTX) $(LIBMLX) Makefile
 
 
 
-$(LIBLIBFTX): Makefile
+$(LIBLIBFTX): ./libftx/Makefile
 	$(MAKE) -C $(DIR_LIBFTX)
 
 $(OBJ_DIR)/%.d: $(DIR_FRACTOL)/%.c | $(OBJ_DIR)

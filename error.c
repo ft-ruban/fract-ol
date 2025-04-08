@@ -6,7 +6,7 @@
 /*   By: ldevoude <ldevoude@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 11:42:44 by ldevoude          #+#    #+#             */
-/*   Updated: 2025/04/08 14:01:22 by ldevoude         ###   ########lyon.fr   */
+/*   Updated: 2025/04/08 14:30:28 by ldevoude         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,7 @@ int	error_msg_help(void)
 int	error_msg(int error_code)
 {
 	if (error_code == 1)
-	{
-		ft_printfd("Error code :%d\n  ", error_code);
-		ft_printfd("does not detect any arguments\n");
-	}
+		error_msg_help();
 	else if (error_code == 2)
 	{
 		ft_printfd("Error code :%d\n", error_code);
@@ -66,14 +63,15 @@ int	error_msg(int error_code)
 	{
 		ft_printfd("Error code :%d\n", error_code);
 		ft_printfd("Julia set require two additionnal argument.\n");
+		ft_printfd("(ex: 0.285 + 0.01)\n");
 	}
 	else if (error_code == 4)
 		error_msg_help();
 	else if (error_code == 5)
 	{
 		ft_printfd("Error code : %d\n", error_code);
-		ft_printfd("I cannot recognize your arguments, check for any typos");
-		ft_printfd(" and if your fractal does exist inside of the program.\n");
+		ft_printfd("Invalid fractal name\n");
+		error_msg_help();
 	}
 	ft_printfd("do not hesitate to use the help argument (./fractol Help)");
 	exit(error_code);
